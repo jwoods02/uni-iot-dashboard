@@ -1,34 +1,71 @@
-import React from "react";
+import React, { Component } from 'react';
+import firebase from "firebase";
+import apikey from "../../firebase.js";
+
 
 // todo if we are going to have the option to register then this form can be altered with props
-const LoginForm = (props) => {
-    return (
-        <div>
-            <div className="container col-6">
+class LoginForm extends Component {
+
+    constructor(props) {
+        super(props);
+
+        // Initializing app
+        let config = {
+            apiKey: apikey,
+            authDomain: "fir-test-6e084.firebaseapp.com",
+            databaseURL: "https://fir-test-6e084.firebaseio.com",
+            storageBucket: "fir-test-6e084.appspot.com"
+        };
+        firebase.initializeApp(config);
+    }
+
+
+    login(event) {
+        event.preventDefault();
+        console.log("test");
+
+        firebase.auth().signInWithEmailAndPassword("test@test.com", "testTEST")
+            .then(function(user) {
+              console.log(user)
+            })
+            .catch(function (error) {
+            // todo Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(error);
+        });
+    };
+
+    render() {
+        return (
+            <div>
+                <div className="container col-6">
                     <div className="main-login main-center ">
-                        <form className="form-horizontal" method="post" action="#">
+                        <form className="form-horizontal" onSubmit={this.login}>
 
-                            <div className="form-group text-primary font-weight-bold ">
-                                <label htmlFor="CommunityID" className="float-left control-label ">Community ID</label>
-                                <div className=" input-group">
+                            {/*<div className="form-group text-primary font-weight-bold ">*/}
+                            {/*<label htmlFor="CommunityID" className="float-left control-label ">Community ID</label>*/}
+                            {/*<div className=" input-group">*/}
 
-                                    <button type="button" className="btn btn-default" aria-label="Left Align">
-                                        <i className="fas fa-globe-americas"/>
-                                    </button>
+                            {/*<button type="button" className="btn btn-default" aria-label="Left Align">*/}
+                            {/*<i className="fas fa-globe-americas"/>*/}
+                            {/*</button>*/}
 
-                                        <input type="text" className="form-control"  id="communityID"
-                                               placeholder="Please enter your community ID"/>
-                                </div>
-                            </div>
+                            {/*<input type="text" className="form-control"  id="communityID"*/}
+                            {/*placeholder="Please enter your community ID"/>*/}
+                            {/*</div>*/}
+                            {/*</div>*/}
 
+
+                            {/*todo change back from email to persnal ID or change the id and htmlFor*/}
                             <div className="form-group text-primary font-weight-bold">
-                                <label htmlFor="personalID" className="float-left control-label">Personal ID</label>
+                                <label htmlFor="personalID" className="float-left control-label">Email</label>
                                 <div className="input-group">
                                     <button type="button" className="btn btn-default" aria-label="Left Align">
                                         <i className="fas fa-user"/>
                                     </button>
-                                        <input type="text" className="form-control" id="personalID"
-                                               placeholder="Please enter your personal ID"/>
+                                    <input type="text" className="form-control" id="personalID"
+                                           placeholder="Please enter your personal ID"/>
                                 </div>
                             </div>
 
@@ -38,18 +75,19 @@ const LoginForm = (props) => {
                                     <button type="button" className="btn btn-default" aria-label="Left Align">
                                         <i className="fas fa-key"/>
                                     </button>
-                                        <input type="text" className="form-control" name="password" id="password"
-                                               placeholder="Please enter your password"/>
-                                    </div>
+                                    <input type="text" className="form-control" name="password" id="password"
+                                           placeholder="Please enter your password"/>
                                 </div>
+                            </div>
                             <div className="login-register">
-                                <button className="btn btn-primary round">Login</button>
+                                <input type="submit" className="btn btn-primary round" value="Login"/>
                             </div>
                         </form>
-                        </div>
                     </div>
+                </div>
             </div>
-    )
-};
+        )
+    };
+}
 
 export default LoginForm;
