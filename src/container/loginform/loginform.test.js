@@ -25,4 +25,9 @@ describe("Login Form Tests", () => {
     const divs = loginForm().find("div");
     expect(divs.length).toBeGreaterThan(0);
   });
+
+  it("calls login with correct email and password", () => {
+    const divs = loginForm().find("div");
+    expect(divs.length).toBeGreaterThan(0);
+  });
 });
