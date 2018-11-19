@@ -34,14 +34,15 @@ body {
 }
 
 .image{
-  width:20%;
+  max-width:20%;
   position:absolute;
-  top: 30%;
+  height: auto;
+  bottom: 40px;
   /* bottom:20px; */
 }
 .image > img {
   /* background-color:#fff; */
-  border-radius:4px;
+  border-radius:20px;
   display:block;
   padding:8px;
   box-sizing:border-box;
