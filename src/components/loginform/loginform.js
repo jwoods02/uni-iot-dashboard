@@ -13,7 +13,7 @@ const LoginForm = (props) => {
                                 <div className=" input-group">
 
                                     <button type="button" className="btn btn-default" aria-label="Left Align">
-                                        <i className="fas fa-globe-americas"></i>
+                                        <i className="fas fa-globe-americas"/>
                                     </button>
 
                                         <input type="text" className="form-control"  id="communityID"
@@ -25,7 +25,7 @@ const LoginForm = (props) => {
                                 <label htmlFor="personalID" className="float-left control-label">Personal ID</label>
                                 <div className="input-group">
                                     <button type="button" className="btn btn-default" aria-label="Left Align">
-                                        <i className="fas fa-user"></i>
+                                        <i className="fas fa-user"/>
                                     </button>
                                         <input type="text" className="form-control" id="personalID"
                                                placeholder="Please enter your personal ID"/>
@@ -36,7 +36,7 @@ const LoginForm = (props) => {
                                 <label htmlFor="password" className="float-left control-label">Password</label>
                                 <div className="input-group">
                                     <button type="button" className="btn btn-default" aria-label="Left Align">
-                                        <i className="fas fa-key"></i>
+                                        <i className="fas fa-key"/>
                                     </button>
                                         <input type="text" className="form-control" name="password" id="password"
                                                placeholder="Please enter your password"/>
