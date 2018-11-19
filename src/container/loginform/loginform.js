@@ -3,8 +3,12 @@ import firebase from "firebase";
 import apikey from "../../firebase.js";
 
 
-// todo if we are going to have the option to register then this form can be altered with props
+
+// Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:
+const passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
+
 class LoginForm extends Component {
+
 
     constructor(props) {
         super(props);
@@ -25,6 +29,7 @@ class LoginForm extends Component {
             storageBucket: "fir-test-6e084.appspot.com"
         };
         firebase.initializeApp(config);
+
     }
 
     handleSubmit(event) {
@@ -65,19 +70,6 @@ class LoginForm extends Component {
                     <div className="main-login main-center ">
                         <form className="form-horizontal" onSubmit={this.handleSubmit}>
 
-                            {/*<div className="form-group text-primary font-weight-bold ">*/}
-                            {/*<label htmlFor="CommunityID" className="float-left control-label ">Community ID</label>*/}
-                            {/*<div className=" input-group">*/}
-
-                            {/*<button type="button" className="btn btn-default" aria-label="Left Align">*/}
-                            {/*<i className="fas fa-globe-americas"/>*/}
-                            {/*</button>*/}
-
-                            {/*<input type="text" className="form-control"  id="communityID"*/}
-                            {/*placeholder="Please enter your community ID"/>*/}
-                            {/*</div>*/}
-                            {/*</div>*/}
-
 {/* Email Section*/}
                             <div className="form-group text-primary font-weight-bold">
                                 <label htmlFor="email" className="float-left control-label">Email</label>
@@ -85,9 +77,10 @@ class LoginForm extends Component {
                                     <button type="button" className="btn btn-default" aria-label="Left Align">
                                         <i className="fas fa-user"/>
                                     </button>
-                                    <input type="text" className="form-control" name="email"
+                                    <input type="email" className="form-control" name="email"
                                            placeholder="Please enter your email" value={this.state.email}
-                                    onChange={this.handleInputChanged} required/>
+                                    onChange={this.handleInputChanged} required
+                                    />
                                 </div>
                             </div>
 {/* Password Section */}
@@ -100,7 +93,8 @@ class LoginForm extends Component {
                                     <input type="password" className="form-control" name="password"
                                            placeholder="Please enter your password"
                                            value={this.state.password}
-                                           onChange={this.handleInputChanged} required/>
+                                           onChange={this.handleInputChanged} required
+                                    pattern={passwordRegex}/>
                                 </div>
                             </div>
                             <div className="login-register">
