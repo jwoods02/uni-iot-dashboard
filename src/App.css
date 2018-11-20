@@ -33,21 +33,21 @@ body {
   height: 100%;
 }
 
-.image{
-  max-width:20%;
-  position:absolute;
+.image {
+  max-width: 20%;
+  position: absolute;
   height: auto;
   bottom: 40px;
   /* bottom:20px; */
 }
 .image > img {
   /* background-color:#fff; */
-  border-radius:20px;
-  display:block;
-  padding:8px;
-  box-sizing:border-box;
-  margin:auto;
-  width:80%;
+  border-radius: 20px;
+  display: block;
+  padding: 8px;
+  box-sizing: border-box;
+  margin: auto;
+  width: 80%;
 }
 
 /* Home page logo */
@@ -65,11 +65,18 @@ body {
 }
 
 .homeRow button:first-of-type {
+  border: none;
   border-bottom: 4px rgb(7, 92, 0) solid;
 }
 
 .homeRow button:last-of-type {
+  background-color: rgb(208, 14, 14);
+  border: none;
   border-bottom: 4px rgb(92, 0, 0) solid;
+}
+
+.homeRow button:last-of-type:hover {
+  background-color: rgb(164, 8, 8);
 }
 
 /* Container div for the home page */
@@ -77,7 +84,7 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #000000,#202020 60%,#404040);
+  background: linear-gradient(180deg, #000000 50%, #101010 70%, #303030);
   z-index: 100; /* Places this above all other elements of the page */
   /* Positioning the logo and the buttons in the center of the viewport */
   text-align: center;
@@ -130,7 +137,8 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
   line-height: 46px;
 }
 
-.scroll-to-top:focus, .scroll-to-top:hover {
+.scroll-to-top:focus,
+.scroll-to-top:hover {
   color: white;
 }
 
@@ -173,12 +181,12 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
   vertical-align: 0;
   border: 0;
   font-weight: 900;
-  content: '\f105';
-  font-family: 'Font Awesome 5 Free';
+  content: "\f105";
+  font-family: "Font Awesome 5 Free";
 }
 
 .navbar-nav .nav-item.dropdown.show .dropdown-toggle::after {
-  content: '\f107';
+  content: "\f107";
 }
 
 .navbar-nav .nav-item.dropdown.no-arrow .dropdown-toggle::after {
@@ -245,7 +253,9 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.sidebar .nav-item .nav-link:active, .sidebar .nav-item .nav-link:focus, .sidebar .nav-item .nav-link:hover {
+.sidebar .nav-item .nav-link:active,
+.sidebar .nav-item .nav-link:focus,
+.sidebar .nav-item .nav-link:hover {
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -446,7 +456,6 @@ body.sidebar-toggled footer.sticky-footer {
     width: calc(100% - 90px);
   }
 }
-
 
 .App-link {
   color: #61dafb;
