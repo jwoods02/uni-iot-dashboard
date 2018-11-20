@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import Nav from "./components/Dashboard/Nav";
+import Home from "./components/Homepage/Home";
+import Nav from "./components/Nav";
 import TopNav from "./components/Dashboard/TopNav";
+import LoginForm from "./container/loginform/loginform";
+
 import setupFirebase from "./utils/firebaseSetup";
 
 class App extends Component {
@@ -12,8 +15,20 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Home />
+        {/* <div className="App">
+        <header className="App-header"> */}
         <TopNav />
         <Nav />
+        {/* </header>
+      // </div>*/}
+        <div className="App">
+          <LoginForm />
+        </div>
+
+        <TopNav />
+        <Nav />
+
       </div>
     );
   }
