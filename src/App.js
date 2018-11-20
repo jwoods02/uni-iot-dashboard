@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import './App.css';
-import Home from './components/Home';
+import Home from './components/Homepage/Home';
 import Nav from './components/Nav';
 import TopNav from './components/TopNav';
 import LoginForm from "./container/loginform/loginform";
