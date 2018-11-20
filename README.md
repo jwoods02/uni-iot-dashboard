@@ -2,6 +2,23 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 test
 
+## Set-Up Project
+
+### Add a firebase.js file
+
+In src create a new firebase.js file.
+
+This file should contain:
+
+```JavaScript
+const apiKey = <API KEY HERE>;
+
+export default apiKey;
+
+```
+
+Get API key from firebase console and add it
+
 ## Available Scripts
 
 In the project directory, you can run:
