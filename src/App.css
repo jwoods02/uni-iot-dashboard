@@ -63,6 +63,22 @@ body {
   width: 20%;
   border-radius: 2px 20px 20px 20px;
 }
+.display{
+  position: relative;
+  float: right;
+}
+
+#wrapper #content-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 80px;
+}
+
+body.fixed-nav #content-wrapper {
+  margin-top: 56px;
+  padding-left: 90px;
+}
 
 .homeRow button:first-of-type {
   border: none;

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Home from "./components/Homepage/Home";
 import Nav from "./components/Nav";
-import TopNav from "./components/TopNav";
+import TopNav from "./components/Dashboard/TopNav";
 import LoginForm from "./container/loginform/loginform";
+
 import setupFirebase from "./utils/firebaseSetup";
 
 class App extends Component {
@@ -25,6 +25,10 @@ class App extends Component {
         <div className="App">
           <LoginForm />
         </div>
+
+        <TopNav />
+        <Nav />
+
       </div>
     );
   }
