@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Nav from './components/Nav';
-import TopNav from './components/TopNav';
+import Nav from './components/Dashboard/Nav';
+import TopNav from './components/Dashboard/TopNav';
 
 class App extends Component {
   render() {
@@ -12,6 +12,7 @@ class App extends Component {
         <header className="App-header"> */}
         <TopNav />
         <Nav />
+        {/* <Cards /> */}
       {/* </header>
       // </div>*/}
       </div>

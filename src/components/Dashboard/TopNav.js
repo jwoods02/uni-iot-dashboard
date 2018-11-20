@@ -15,7 +15,7 @@ class TopNav extends Component {
       </button>
 
     {/* // nav search */}
-      <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      {/* <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         <div className="input-group">
           <input type="text" className="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
           <div className="input-group-append">
@@ -24,10 +24,10 @@ class TopNav extends Component {
             </button>
           </div>
         </div>
-      </form>
+      </form> */}
 
     {/* Nav  */}
-      <ul className="navbar-nav ml-auto ml-md-0">
+      <ul className="navbar-nav my-2 ml-auto">
         <li className="nav-item dropdown no-arrow mx-1">
           <a className="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i className="fas fa-bell fa-fw"></i>

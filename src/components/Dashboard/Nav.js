@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import '../App.css';
-import Image from '../Photos/dww.jpg';
+import '../../App.css';
+import Image from '../../Photos/dww.jpg';
+import Cards from './Cards'
 
 class Nav extends Component {
     render() {
         return (
-            <div>
+            <div id="wrapper">
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="index.html">
@@ -45,7 +46,11 @@ class Nav extends Component {
           <img src={Image} alt="data works wales img not found"/>
   
       </div>  
+
+      <Cards />
             </div>
+
+            
         );
     }
 }

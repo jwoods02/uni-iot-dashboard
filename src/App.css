@@ -49,6 +49,22 @@ body {
   margin:auto;
   width:80%;
 }
+.display{
+  position: relative;
+  float: right;
+}
+
+#wrapper #content-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 80px;
+}
+
+body.fixed-nav #content-wrapper {
+  margin-top: 56px;
+  padding-left: 90px;
+}
 
 
 #wrapper {
