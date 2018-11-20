@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> matches the snapshot 1`] = `
+<div
+  id="homeWrapper"
+>
+  <section
+    className="homeRow"
+  >
+    <img
+      alt="Data Works Wales logo"
+      src="dww.jpg"
+    />
+  </section>
+  <section
+    className="homeRow"
+  >
+    <button
+      className="btn btn-success"
+    >
+      Community Login
+    </button>
+    <button
+      className="btn btn-danger"
+    >
+      Teaching Portal
+    </button>
+  </section>
+</div>
+`;
