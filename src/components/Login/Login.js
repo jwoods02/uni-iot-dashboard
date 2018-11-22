@@ -1,37 +1,48 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import firebase from "firebase";
+import * as ROUTES from '../../constants/routes';
 
 // Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:
 const passwordRegex =
   "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,}$";
 
-class Login extends Component {
-  constructor(props) {
+  const INITIAL_STATE = {
+    email: '',
+    password: '',
+    error: null,
+  };
+
+class Login extends Component {  
+    constructor(props) {
     super(props);
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      error: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChanged = this.handleInputChanged.bind(this);
-  }
+  } 
 
   handleSubmit(event) {
-    event.preventDefault();
     console.log("test");
 
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(function(user) {
+        // this.setState = { ...INITIAL_STATE };
         console.log(user);
+        this.props.history.push(ROUTES.DASHBOARD)
       })
       .catch(function(error) {
-        console.log(error);
+        // console.log("jhdjhd "+error);
+        // this.setState({ error });
       });
+      event.preventDefault();
 
     this.setState({
       password: ""
@@ -102,5 +113,7 @@ class Login extends Component {
         );
     }
 }
+
+// const LoginForm = withRouter(withFirebase(SignUpFormBase));
 
 export default Login;
