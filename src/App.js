@@ -3,8 +3,8 @@ import "./App.css";
 import Home from "./components/Homepage/Home";
 import Nav from "./components/Nav";
 import TopNav from "./components/Dashboard/TopNav";
-import LoginForm from "./container/loginform/loginform";
-
+import loginform from "./container/loginform/loginform";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import setupFirebase from "./utils/firebaseSetup";
 
 class App extends Component {
@@ -15,20 +15,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Home />
-        {/* <div className="App">
-        <header className="App-header"> */}
-        <TopNav />
-        <Nav />
-        {/* </header>
-      // </div>*/}
-        <div className="App">
-          <LoginForm />
-        </div>
-
-        <TopNav />
-        <Nav />
-
+        <Router>
+            <div className="sans-serif">
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={loginform} />
+            </div>
+          </Router>
       </div>
     );
   }
