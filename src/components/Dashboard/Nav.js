@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../App.css";
-import Image from "../../Photos/dww.jpg";
+import Image from "../../Assets/dww.jpg";
 import Cards from "./Cards";
 
 class Nav extends Component {

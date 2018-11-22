@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import Home from "./components/Homepage/Home";
-import Nav from "./components/Nav";
-import TopNav from "./components/Dashboard/TopNav";
-import loginform from "./container/loginform/loginform";
+import Login from "./components/Login/Login";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import setupFirebase from "./utils/firebaseSetup";
+import Dashboard from "./container/Dashboard/Dashboard";
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +17,8 @@ class App extends Component {
         <Router>
             <div className="sans-serif">
               <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={loginform} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/dashboard" component={Dashboard} />
             </div>
           </Router>
       </div>

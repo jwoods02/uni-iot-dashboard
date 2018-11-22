@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import NavTop from '../../Dashboard/Nav';
-import NavTop from '../../Dashboard/NavTop';
+import Nav from '../../components/Dashboard/Nav';
+import NavTop from '../../components/Dashboard/TopNav';
 
 class Dashboard extends Component {
     render() {
