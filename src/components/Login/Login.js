@@ -12,13 +12,20 @@ class Login extends Component {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
-      error: ''
+      email: "",
+      password: "",
+      error: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChanged = this.handleInputChanged.bind(this);
+
+    firebase
+      .auth()
+      .signOut()
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   handleSubmit(event) {
@@ -38,7 +45,12 @@ class Login extends Component {
     this.setState({
       password: ""
     });
-    this.props.history.push("/dashboard");
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.history.push("/dashboard");
+      }
+    });
   }
 
   handleInputChanged(event) {
@@ -131,4 +143,4 @@ class Login extends Component {
 
 // const LoginForm = withRouter(withFirebase(SignUpFormBase));
 
-export default withRouter(Login);
+export default Login;
