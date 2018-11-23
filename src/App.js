@@ -15,16 +15,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Home />
-        {/* <div className="App">
-        <header className="App-header"> */}
-        <TopNav />
-        <Nav />
-        {/* </header>
-      // </div>*/}
-        <div className="App">
-          <LoginForm />
-        </div>
 
         <TopNav />
         <Nav />
