@@ -1,12 +1,12 @@
-import apikey from "../firebase";
+import apiKey from "../src/firebase.js";
 
-const firebase = require("firebase");
+import firebase from "firebase";
 // Required for side-effects
-require("firebase/firestore");
+// require("firebase/firestore");
 
 
 const config = {
-    apiKey: apikey,
+    apiKey: apiKey,
     authDomain: "dww-iot.firebaseapp.com",
     databaseURL: "https://dww-iot.firebaseio.com",
     projectId: "dww-iot",

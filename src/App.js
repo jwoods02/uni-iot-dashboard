@@ -15,10 +15,8 @@ class App extends Component {
   render() {
     return (
       <div>
-
         <TopNav />
         <Nav />
-
       </div>
     );
   }
