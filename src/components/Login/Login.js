@@ -7,12 +7,6 @@ import * as ROUTES from "../../constants/routes";
 const passwordRegex =
   "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,}$";
 
-const INITIAL_STATE = {
-  email: '',
-  password: '',
-  error: null
-};
-
 class Login extends Component {
   constructor(props) {
     super(props);
