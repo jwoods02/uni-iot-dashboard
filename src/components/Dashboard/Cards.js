@@ -18,7 +18,7 @@ class Cards extends Component {
 
         {/* <!-- Icon Cards--> */}
         <div className="row">
-          <div className="col-xl-3 col-sm-6 mb-3">
+          <div className="col mb-3">
             <div className="card text-white bg-primary o-hidden h-100">
               <div className="card-body">
                 <div className="card-body-icon">
@@ -35,7 +35,7 @@ class Cards extends Component {
             </div>
           </div>
 
-          <div className="col-xl-3 col-sm-6 mb-3">
+          <div className="col mb-3">
             <div className="card text-white bg-danger o-hidden h-100">
               <div className="card-body">
                 <div className="card-body-icon">
@@ -57,7 +57,7 @@ class Cards extends Component {
         <div className="card mb-3">
           <div className="card-header">
             <i className="fas fa-chart-area" />
-            Sesnor Histroic Data
+            Sensor Histroic Data
           </div>
           <div className="card-body">
             <canvas id="myAreaChart" width="100%" height="30" />
