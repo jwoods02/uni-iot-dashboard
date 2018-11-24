@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import firebase from "firebase";
 import * as ROUTES from "../../constants/routes";
+import {Redirect} from "react-router";
 
 // Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:
 const passwordRegex =
@@ -12,6 +13,7 @@ class Login extends Component {
     super(props);
 
     this.state = {
+      redirect : false,
       email: "",
       password: "",
       error: ""
@@ -48,8 +50,11 @@ class Login extends Component {
     });
 
     firebase.auth().onAuthStateChanged(user => {
+
       if (user) {
-        this.props.history.push("/dashboard");
+          console.log("changing page");
+        // this.props.history.push("/dashboard");
+          this.setState({redirect: true})
       }
     });
   }
@@ -64,6 +69,12 @@ class Login extends Component {
     });
   }
   render() {
+      const { from } = this.props.location.state || { from: { pathname: '/dashboard' } }
+
+      if (this.state.redirect === true) {
+          return <Redirect to={from} />
+      }
+
     return (
       <div>
         <div className="container">
