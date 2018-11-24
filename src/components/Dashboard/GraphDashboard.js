@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Cards extends Component {
   render() {
     return (
-      // <div id="content-wrapper">
+      <div>
 
       <div className="container-fluid">
         {/* <!-- Breadcrumbs--> */}
@@ -199,6 +199,7 @@ class Cards extends Component {
             Updated yesterday at 11:59 PM
           </div>
         </div>
+      </div>
       </div>
     );
   }

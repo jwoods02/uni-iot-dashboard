@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "../../App.css";
 import Image from "../../Assets/dww.jpg";
-import GraphDashboard from './GraphDashboard';
+// import GraphDashboard from './GraphDashboard';
 class Sidebar extends Component {
   render() {
     return (
-      <div id="wrapper">
-        <ul className="sidebar navbar-nav">
+      <div>
+        <ul className="sidebar navbar-nav ml-1">
           <li className="nav-item active">
             <a className="nav-link" href="index.html">
               <i className="fas fa-fw fa-tachometer-alt" />
@@ -64,8 +64,7 @@ class Sidebar extends Component {
         <div className="image">
           <img src={Image} alt="data works wales img not found" />
         </div>
-      <GraphDashboard/>
-      </div>
+       </div>
     );
   }
 }
