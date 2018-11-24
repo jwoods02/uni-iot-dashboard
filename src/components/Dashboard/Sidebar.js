@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import "../../App.css";
 import Image from "../../Assets/dww.jpg";
-import Cards from "./Cards";
-
-class Nav extends Component {
+import GraphDashboard from './GraphDashboard';
+class Sidebar extends Component {
   render() {
     return (
       <div id="wrapper">
@@ -65,11 +64,10 @@ class Nav extends Component {
         <div className="image">
           <img src={Image} alt="data works wales img not found" />
         </div>
-
-        <Cards />
+      <GraphDashboard/>
       </div>
     );
   }
 }
 
-export default Nav;
+export default Sidebar;

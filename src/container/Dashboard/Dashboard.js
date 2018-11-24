@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import Nav from '../../components/Dashboard/Nav';
+import Sidebar from '../../components/Dashboard/Sidebar';
 import NavTop from '../../components/Dashboard/TopNav';
-
+import Cards from '../../components/Dashboard/GraphDashboard';
 class Dashboard extends Component {
     render() {
         return (
             <div>
                <NavTop />
-                <Nav />
+                <Sidebar />
+
+                {/* todo - fix and rename card. isolate component.  */}
+
+                {/* <Cards /> */}
             </div>
         );
     }
