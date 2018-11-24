@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import setupFirebase from "./utils/firebaseSetup";
 import Dashboard from "./container/Dashboard/Dashboard";
 import {Redirect} from "react-router";
-import { app, base } from './base';
+import firebase from "firebase";
+
 
 function AuthenticatedRoute({component: Component, authenticated, ...rest}){
     console.log("redirecting");
@@ -47,7 +48,7 @@ class App extends Component {
     }
 
     componentWillMount() {
-        this.removeAuthListener = app.auth().onAuthStateChanged((user) => {
+        this.removeAuthListener = firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.setState({
                     authenticated: true,
@@ -62,6 +63,10 @@ class App extends Component {
                 })
             }
         })
+    }
+
+    componentWillUnmount() {
+        this.removeAuthListener();
     }
 
   render() {
