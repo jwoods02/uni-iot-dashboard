@@ -29,15 +29,16 @@ class Login extends Component {
   }
 
   handleSubmit(event) {
-    console.log("test");
 
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(function(user) {
         console.log(user);
+        console.log("successful login");
       })
       .catch(function(error) {
+        console.log("unsuccessful login");
         alert(error);
       });
     event.preventDefault();
@@ -141,6 +142,5 @@ class Login extends Component {
   }
 }
 
-// const LoginForm = withRouter(withFirebase(SignUpFormBase));
 
 export default Login;
