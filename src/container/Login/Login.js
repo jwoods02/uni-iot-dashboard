@@ -38,6 +38,9 @@ class Login extends Component {
       .then(function(user) {
         console.log(user);
         console.log("successful login");
+
+        // james please pick this up
+        localStorage.setItem('user', user);
       })
       .catch(function(error) {
         console.log("unsuccessful login");

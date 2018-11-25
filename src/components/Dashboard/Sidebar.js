@@ -6,13 +6,14 @@ class Sidebar extends Component {
   render() {
     return (
       <div>
-        <ul className="sidebar navbar-nav ml-1">
+        <ul className="sidebar navbar-nav">
           <li className="nav-item active">
             <a className="nav-link" href="index.html">
               <i className="fas fa-fw fa-tachometer-alt" />
-              <span>Dashboard</span>
+              <span> Dashboard</span>
             </a>
           </li>
+          
           <li className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"

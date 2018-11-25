@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Sidebar from '../../components/Dashboard/Sidebar';
-import NavTop from '../../components/Dashboard/TopNav';
-import GraphDashboard from '../../components/Dashboard/GraphDashboard';
+import Sidebar from '../../../components/Dashboard/Sidebar'
+import NavTop from '../../../components/Dashboard/TopNav';
+import Notifications from '../../../components/Dashboard/Notifications';
 
 class Dashboard extends Component {
     render() {
@@ -9,9 +9,9 @@ class Dashboard extends Component {
             <div>
                <NavTop />
 
-               <div id="wrapper">
+               <div className="row">
                 <Sidebar />
-                <GraphDashboard />
+                <Notifications />
 
                 </div>
             </div>
