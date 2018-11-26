@@ -13,7 +13,7 @@ class Sidebar extends Component {
               <span> Dashboard</span>
             </a>
           </li>
-          
+
           <li className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"
@@ -65,7 +65,7 @@ class Sidebar extends Component {
         <div className="image">
           <img src={Image} alt="data works wales img not found" />
         </div>
-       </div>
+      </div>
     );
   }
 }
