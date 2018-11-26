@@ -8,6 +8,7 @@ import Dashboard from "./container/Dashboard/Dashboard";
 import { Redirect } from "react-router";
 import firebase from "firebase";
 import Notifications from "./container/Dashboard/Notifications";
+import Tables from "./container/Dashboard/Tables";
 
 function AuthenticatedRoute({ component: Component, authenticated, ...rest }) {
   return (
@@ -89,6 +90,7 @@ class App extends Component {
               }}
             />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/dashboard/tables" component={Tables} />
             <Route
             exact
             path="/dashboard/notifications"

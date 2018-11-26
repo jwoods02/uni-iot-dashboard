@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import "../../App.css";
 import Image from "../../Assets/dww.jpg";
+import { Link, Route } from "react-router-dom"
 // import GraphDashboard from './GraphDashboard';
 class Sidebar extends Component {
   render() {
     return (
       <div>
         <ul className="sidebar navbar-nav">
+        <Link to="/dashboard">
           <li className="nav-item active">
             <a className="nav-link" href="index.html">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span> Dashboard</span>
             </a>
           </li>
+          </Link>
           
           <li className="nav-item dropdown">
             <a
@@ -54,17 +57,17 @@ class Sidebar extends Component {
               <span>Charts</span>
             </a>
           </li>
-          <li className="nav-item">
+
+          <Link to="/dashboard/tables"><li className="nav-item">
             <a className="nav-link" href="tables.html">
               <i className="fas fa-fw fa-table" />
               <span>Tables</span>
             </a>
-          </li>
-        </ul>
-
-        <div className="image">
+          </li></Link>
+          <div className="image">
           <img src={Image} alt="data works wales img not found" />
         </div>
+        </ul>
        </div>
     );
   }
