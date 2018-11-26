@@ -5,9 +5,9 @@ import Login from "./container/Login/Login";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import setupFirebase from "./utils/firebaseSetup";
 import Dashboard from "./container/Dashboard/Dashboard";
-import Notifications from "./container/Dashboard/Notifications/Notifications";
 import { Redirect } from "react-router";
 import firebase from "firebase";
+import Notifications from "./components/Dashboard/Notifications";
 
 function AuthenticatedRoute({ component: Component, authenticated, ...rest }) {
   console.log("redirecting");
@@ -28,63 +28,58 @@ function AuthenticatedRoute({ component: Component, authenticated, ...rest }) {
 }
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.setCurrentUser = this.setCurrentUser.bind(this);
-    setupFirebase();
-    this.state = {
-      authenticated: false,
-      currentUser: null
-    };
-  }
-
-  setCurrentUser(user) {
-    console.log("setting current user");
-    if (user) {
-      this.setState({
-        currentUser: user,
-        authenticated: true
-      });
-    } else {
-      this.setState({
-        currentUser: null,
-        authenticated: false
-      });
+    constructor(props) {
+      super(props);
+      this.setCurrentUser = this.setCurrentUser.bind(this);
+      setupFirebase();
+      this.state = {
+        authenticated: false,
+        currentUser: null
+      };
     }
-  }
 
-  componentWillMount() {
-    this.removeAuthListener = firebase.auth().onAuthStateChanged(user => {
+    setCurrentUser(user) {
+      console.log("setting current user");
       if (user) {
         this.setState({
-          authenticated: true,
           currentUser: user,
-          loading: false
+          authenticated: true
         });
       } else {
         this.setState({
-          authenticated: false,
           currentUser: null,
-          loading: false
+          authenticated: false
         });
       }
-    });
-  }
+    }
 
-  componentWillUnmount() {
-    this.removeAuthListener();
-  }
+    componentWillMount() {
+      this.removeAuthListener = firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          this.setState({
+            authenticated: true,
+            currentUser: user,
+            loading: false
+          });
+        } else {
+          this.setState({
+            authenticated: false,
+            currentUser: null,
+            loading: false
+          });
+        }
+      });
+    }
+
+    componentWillUnmount() {
+      this.removeAuthListener();
+    }
 
   render() {
     return (
       <div>
         <Router>
           <div className="sans-serif">
-            <Route
-              exact
-              path="/dashboard/notifications"
-              components={Notifications}
-            />
             <Route exact path="/" component={Home} />
             <Route
               exact
@@ -95,16 +90,22 @@ class App extends Component {
                 );
               }}
             />
-            <AuthenticatedRoute
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route
+            exact
+            path="/dashboard/notifications"
+            components={Notifications}
+     />
+            {/* <AuthenticatedRoute
               requireAuth={true}
               authenticated={this.state.authenticated}
               exact
               path="/dashboard"
               component={Dashboard}
-            />
+            /> */}
           </div>
         </Router>
-      </div>
+        </div>
     );
   }
 }

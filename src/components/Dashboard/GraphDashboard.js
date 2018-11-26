@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom"
 
-class Cards extends Component {
+class GraphDashboard extends Component {
   render() {
     return (
       <div id="content-wrapper">
@@ -28,8 +28,8 @@ class Cards extends Component {
                   <div className="mr-5">View all notifications</div>
                 </div>
                 <Link
-                  className="card-footer text-white clearfix small z-1"
                   to="/dashboard/notifications"
+                  className="card-footer text-white clearfix small z-1"
                 >
                   <span className="float-left">View Details</span>
                   <span className="float-right">
@@ -64,7 +64,7 @@ class Cards extends Component {
           <div className="card mb-3">
             <div className="card-header">
               <i className="fas fa-chart-area" />
-              Sensor Histroic Data
+              IOT Sensor : Name
             </div>
             <div className="card-body">
               <canvas id="myAreaChart" width="100%" height="30" />
@@ -208,8 +208,9 @@ class Cards extends Component {
           </div>
         </div>
       </div>
+       
     );
   }
 }
 
-export default Cards;
+export default GraphDashboard;
