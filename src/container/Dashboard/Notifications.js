@@ -7,9 +7,9 @@ class Notifications extends Component {
     render() {
         return (
             <div>
-                <Sidebar />
-                <div id="wrapper">
                 <TopNav />
+                <div id="wrapper">
+                <Sidebar />
                 <Notification />
                 </div>
             </div>

@@ -7,7 +7,7 @@ import setupFirebase from "./utils/firebaseSetup";
 import Dashboard from "./container/Dashboard/Dashboard";
 import { Redirect } from "react-router";
 import firebase from "firebase";
-import Notifications from "./components/Dashboard/Notifications";
+import Notifications from "./container/Dashboard/Notifications";
 
 function AuthenticatedRoute({ component: Component, authenticated, ...rest }) {
   console.log("redirecting");
@@ -94,7 +94,7 @@ class App extends Component {
             <Route
             exact
             path="/dashboard/notifications"
-            components={Notifications}
+            component={Notifications}
      />
             {/* <AuthenticatedRoute
               requireAuth={true}
