@@ -38,10 +38,8 @@ body {
   position: absolute;
   height: auto;
   bottom: 40px;
-  /* bottom:20px; */
 }
 .image > img {
-  /* background-color:#fff; */
   border-radius: 20px;
   display: block;
   padding: 8px;
