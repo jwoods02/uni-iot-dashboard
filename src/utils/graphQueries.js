@@ -1,18 +1,36 @@
 import firebase from "firebase";
 
-export default function testFirestore() {
-  const testDB = firebase.firestore();
-  testDB.settings({ timestampsInSnapshots: true });
 
-  testDB
-    .collection("testData")
+function getTimeOfReading(date) {
+    doc.data().readings.
+}
+
+var names = array.filter(function(obj) {
+    if ('Name' in obj) {
+        return true;
+    } else {
+        return false;
+    }
+}).map(function(obj) { return obj['Name']; });
+
+export default function xAxis() {
+
+    const db = firebase.firestore();
+    db.settings({ timestampsInSnapshots: true });
+
+  db
+    .collection("sensor")
     .get()
     .then(snapshot => {
       console.log(snapshot.docs);
+      snapshot.docs.forEach(doc => {
+          console.log(doc.data().readings.forEach(getTimeOfReading))
+
+      })
     });
 
     //create a reference all the readings from all the sensors
-    const allReadingsRef = testDB.collection("Readings");
+
     
 
 // todo will need a query to change sensors.sensor.lastUpdate

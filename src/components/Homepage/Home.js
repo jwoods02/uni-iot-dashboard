@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import testFirestore from "../../utils/firestoreTest";
 import "../../App.css";
 import Image from "../../assets/dww.jpg";
 

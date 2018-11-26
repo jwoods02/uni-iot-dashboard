@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import testFirestore from "../../utils/firestoreTest";
+
 
 class TopNav extends Component {
   constructor(props) {
     super(props);
-    testFirestore();
   }
   render() {
     return (
