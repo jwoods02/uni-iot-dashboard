@@ -73,6 +73,7 @@ body {
   width: 100%;
   padding-top: 1rem;
   padding-bottom: 80px;
+  min-height: 100%;
 }
 .blue:hover {
     background-color: blue !important;
