@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import "../../App.css";
-import Image from "../../Photos/dww.jpg";
-import Cards from "./Cards";
-
-class Nav extends Component {
+import Image from "../../Assets/dww.jpg";
+// import GraphDashboard from './GraphDashboard';
+class Sidebar extends Component {
   render() {
     return (
-      <div id="wrapper">
+      <div>
         <ul className="sidebar navbar-nav">
           <li className="nav-item active">
             <a className="nav-link" href="index.html">
               <i className="fas fa-fw fa-tachometer-alt" />
-              <span>Dashboard</span>
+              <span> Dashboard</span>
             </a>
           </li>
+          
           <li className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"
@@ -65,11 +65,9 @@ class Nav extends Component {
         <div className="image">
           <img src={Image} alt="data works wales img not found" />
         </div>
-
-        <Cards />
-      </div>
+       </div>
     );
   }
 }
 
-export default Nav;
+export default Sidebar;

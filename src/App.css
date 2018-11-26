@@ -74,7 +74,10 @@ body {
   padding-top: 1rem;
   padding-bottom: 80px;
 }
-
+.blue:hover {
+    background-color: blue !important;
+    color: white !important;
+}
 body.fixed-nav #content-wrapper {
   margin-top: 56px;
   padding-left: 90px;
