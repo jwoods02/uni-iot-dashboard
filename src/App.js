@@ -10,7 +10,6 @@ import firebase from "firebase";
 import Notifications from "./container/Dashboard/Notifications";
 
 function AuthenticatedRoute({ component: Component, authenticated, ...rest }) {
-  console.log("redirecting");
   return (
     <Route
       {...rest}
@@ -39,7 +38,6 @@ class App extends Component {
     }
 
     setCurrentUser(user) {
-      console.log("setting current user");
       if (user) {
         this.setState({
           currentUser: user,

@@ -1,5 +1,4 @@
 import React from "react";
-// enzyme allows me to render one component to standalone without context or the rest of the application
 import MemoryRouter from "react-router";
 import { configure } from "enzyme";
 import { mount } from "enzyme";
@@ -11,7 +10,6 @@ configure({ adapter: new Adapter() });
 
 describe("<Home />", () => {
   let wrapper;
-  // beforeEach takes a function as an arguement - it executes this function before every "it" jest test
   beforeEach(() => {
     wrapper = mount(
       <MemoryRouter>
@@ -27,7 +25,6 @@ describe("<Home />", () => {
   });
 
   it("should render the Login component", () => {
-    // The code below is the expectation of the test
     expect(wrapper.find(Login));
   });
 });
