@@ -117,6 +117,7 @@ body.fixed-nav #content-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  min-height:100%;
 }
 
 #wrapper #content-wrapper {

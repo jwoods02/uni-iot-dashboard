@@ -5,7 +5,7 @@ class Notifications extends Component {
   render() {
     return (
       <div id="content-wrapper">
-        <h1 className="ml-3">Notifications</h1>
+        <h1 className="ml-">Notifications</h1>
         <div class="list-group col">
           <a
             href="#"
