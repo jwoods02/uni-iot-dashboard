@@ -50,7 +50,7 @@ body {
 
 /* Home page logo */
 .homeRow img {
-  width: 18%;
+  min-width: 18%;
 }
 .homeRow button {
   margin: 30px;
@@ -58,10 +58,10 @@ body {
   font-family: "Trebuchet MS", sans-serif;
   font-weight: 600;
   padding: 15px;
-  width: 20%;
+  min-width: 20%;
   border-radius: 2px 20px 20px 20px;
 }
-.display{
+.display {
   position: relative;
   float: right;
 }
@@ -74,8 +74,8 @@ body {
   min-height: 100%;
 }
 .blue:hover {
-    background-color: blue !important;
-    color: white !important;
+  background-color: blue !important;
+  color: white !important;
 }
 body.fixed-nav #content-wrapper {
   margin-top: 56px;
