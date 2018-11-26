@@ -7,7 +7,7 @@ class Notifications extends Component {
     return (
       <div id="content-wrapper">
         <h1 className="ml-3">Notifications</h1>
-        <div class="list-group col">
+        <div className="list-group col">
             <NotificationsCard/>
 
       </div>
