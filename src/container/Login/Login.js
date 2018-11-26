@@ -56,7 +56,6 @@ class Login extends Component {
 
       if (user) {
           console.log("changing page");
-        // this.props.history.push("/dashboard");
           this.setState({redirect: true})
       }
     });
