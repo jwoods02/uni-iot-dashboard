@@ -47,7 +47,7 @@ class GraphDashboard extends Component {
                   <div className="card-body-icon">
                     <i className="fas fa-fw fa-life-ring" />
                   </div>
-                  <div className="mr-5">View Each Sensons</div>
+                  <div className="mr-5">View Each Sensor</div>
                 </div>
                 <a
                   className="card-footer text-white clearfix small z-1"
