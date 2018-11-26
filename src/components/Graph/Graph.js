@@ -1,27 +1,29 @@
 import React from "react";
 import Plot from 'react-plotly.js';
-import queries from "../../utils/graphQueries"
+import graphData from "../../utils/graphQueries"
+
 
 class Graph extends React.Component {
 
     constructor(props) {
         super(props);
-        queries();
         this.state = { data: [], layout: {}, frames: [], config: {} };
+        this.setGraphData();
     }
 
     componentWillMount() {
-        this.setGraphData();
-        console.log("I am setting graph data")
+
     }
 
     setGraphData(){
+        const graphData = graphData();
+
         this.setState({
             data:
                 [{
                 // todo this data will need to be set
-                    x: [1, 2, 3],  // todo query for time
-                    y: [2, 6, 3], // todo query for sensor data
+                    x: graphData[0],  // todo query for time
+                    y: graphData[1], // todo query for sensor data
                     type: 'line',
                     mode: 'lines+points',
                     marker: {color: 'red'}

@@ -1,19 +1,13 @@
 import firebase from "firebase";
 
 
-function getTimeOfReading(date) {
-    doc.data().readings.
-}
 
-var names = array.filter(function(obj) {
-    if ('Name' in obj) {
-        return true;
-    } else {
-        return false;
-    }
-}).map(function(obj) { return obj['Name']; });
 
-export default function xAxis() {
+
+export default function graphData() {
+
+    let xAxis = [];
+    let yAxis = [];
 
     const db = firebase.firestore();
     db.settings({ timestampsInSnapshots: true });
@@ -22,14 +16,18 @@ export default function xAxis() {
     .collection("sensor")
     .get()
     .then(snapshot => {
-      console.log(snapshot.docs);
       snapshot.docs.forEach(doc => {
-          console.log(doc.data().readings.forEach(getTimeOfReading))
+          doc.data().readings.forEach(reading => {
+              xAxis.push(new Date(reading["date"]["seconds"]*1000));
+              yAxis.push(reading["value"])
 
-      })
+          });
+      });
+
     });
 
-    //create a reference all the readings from all the sensors
+    return [xAxis, yAxis]
+
 
     
 
