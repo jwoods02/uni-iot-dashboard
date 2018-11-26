@@ -21,9 +21,8 @@ class Graph extends React.Component {
       this.setState({
         data: [
           {
-            // todo this data will need to be set
-            x: theGraphData[0], // todo query for time
-            y: theGraphData[1], // todo query for sensor data
+            x: theGraphData[0],
+            y: theGraphData[1],
             type: "line",
             mode: "lines+points",
             marker: { color: "red" }
@@ -31,8 +30,6 @@ class Graph extends React.Component {
         ],
         // todo set graph title with props
         layout: {
-          width: 600,
-          height: 600,
           title: "THIS WILL NEED TO BE SET WITH PROPS"
         },
         frame: {},

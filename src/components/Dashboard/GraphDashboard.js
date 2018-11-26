@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link, Route } from "react-router-dom"
+import SensorInfoCard from "./SensorInfoCard";
+
 
 class GraphDashboard extends Component {
   render() {
@@ -61,42 +63,8 @@ class GraphDashboard extends Component {
           </div>
 
           {/* <!-- Area Chart Example--> */}
-          <div className="card mb-3">
-            <div className="card-header">
-              <i className="fas fa-chart-area" />
-              IOT Sensor : 1
-            </div>
-            <div className="card-body">
-              <canvas id="myAreaChart" width="100%" height="30" />
-            </div>
-            <div className="card-footer small text-muted">
-              Updated 5 seconds ago
-            </div>
-          </div>
-          <div className="card mb-3">
-            <div className="card-header">
-              <i className="fas fa-chart-area" />
-              IOT Sensor : 2
-            </div>
-            <div className="card-body">
-              <canvas id="myAreaChart" width="100%" height="30" />
-            </div>
-            <div className="card-footer small text-muted">
-              Updated 5 seconds ago
-            </div>
-          </div>
-          <div className="card mb-3">
-            <div className="card-header">
-              <i className="fas fa-chart-area" />
-              IOT Sensor : 3
-            </div>
-            <div className="card-body">
-              <canvas id="myAreaChart" width="100%" height="30" />
-            </div>
-            <div className="card-footer small text-muted">
-              Updated 5 seconds ago
-            </div>
-          </div>
+
+          <SensorInfoCard/>
         </div>
       </div>
        
