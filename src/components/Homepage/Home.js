@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../../App.css";
 import Image from "../../assets/dww.jpg";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   render() {
@@ -10,7 +11,9 @@ class Home extends Component {
           <img src={Image} alt="Data Works Wales logo" />
         </section>
         <section className="homeRow">
-          <button className="btn btn-success">Community Login</button>
+          <Link to="/login">
+            <button className="btn btn-success">Community Login</button>
+          </Link>
           <button className="btn btn-danger">Teaching Portal</button>
         </section>
       </div>

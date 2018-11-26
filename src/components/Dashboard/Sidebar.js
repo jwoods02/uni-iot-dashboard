@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import "../../App.css";
-import Image from "../../Photos/dww.jpg";
-import Cards from "./Cards";
+import Image from "../../assets/dww.jpg";
+import { Link, Route } from "react-router-dom";
 
-class Nav extends Component {
+class Sidebar extends Component {
   render() {
     return (
-      <div id="wrapper">
+      <div>
         <ul className="sidebar navbar-nav">
-          <li className="nav-item active">
-            <a className="nav-link" href="index.html">
-              <i className="fas fa-fw fa-tachometer-alt" />
-              <span>Dashboard</span>
-            </a>
-          </li>
+          <Link to="/dashboard">
+            <li className="nav-item active">
+              <a className="nav-link" href="index.html">
+                <i className="fas fa-fw fa-tachometer-alt" />
+                <span> Dashboard</span>
+              </a>
+            </li>
+          </Link>
+
           <li className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"
@@ -54,22 +57,22 @@ class Nav extends Component {
               <span>Charts</span>
             </a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="tables.html">
-              <i className="fas fa-fw fa-table" />
-              <span>Tables</span>
-            </a>
-          </li>
+
+          <Link to="/dashboard/tables">
+            <li className="nav-item">
+              <a className="nav-link" href="tables.html">
+                <i className="fas fa-fw fa-table" />
+                <span>Tables</span>
+              </a>
+            </li>
+          </Link>
+          <div className="image">
+            <img src={Image} alt="data works wales img not found" />
+          </div>
         </ul>
-
-        <div className="image">
-          <img src={Image} alt="data works wales img not found" />
-        </div>
-
-        <Cards />
       </div>
     );
   }
 }
 
-export default Nav;
+export default Sidebar;
