@@ -54,7 +54,7 @@ class Notifications extends Component {
       </div>
       </div>
     );
-  }
+  };
 }
 
 export default Notifications;
