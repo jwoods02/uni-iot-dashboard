@@ -1,6 +1,6 @@
 import firebase from "firebase";
 
-export default function graphData() {
+export default function graphData(sensorName) {
   let xAxis = [];
   let yAxis = [];
 
@@ -8,10 +8,10 @@ export default function graphData() {
   db.settings({ timestampsInSnapshots: true });
 
   return new Promise(function(resolve, reject) {
-    db.collection("sensor")
-      .get()
-      .then(snapshot => {
-        snapshot.docs.forEach(doc => {
+          db.collection("sensor")
+              .get()
+      .then(sensors => {
+        sensors.docs.forEach(doc => {
           doc.data().readings.forEach(reading => {
             xAxis.push(new Date(reading["date"]["seconds"] * 1000));
             yAxis.push(reading["value"]);
