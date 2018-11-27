@@ -1,7 +1,7 @@
 import firebase from "firebase";
 
 
-export default function getSensorNames(sensorName) {
+export default function getSensorNames() {
     let sensorNames = [];
     const db = firebase.firestore();
     db.settings({ timestampsInSnapshots: true });

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link, Route } from "react-router-dom"
 import SensorInfoCard from "./SensorInfoCard";
 
-
 class GraphDashboard extends Component {
   render() {
     return (

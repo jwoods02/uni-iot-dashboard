@@ -15,6 +15,7 @@ export default function getGraphDataBySensorName(sensorName) {
       .where("name", "==", sensorName)
       .get()
       .then(sensors => {
+        console.log(sensors)
         sensors.docs.forEach(doc => {
           doc.data().readings.forEach(reading => {
             xAxis.push(new Date(reading["date"]["seconds"] * 1000));

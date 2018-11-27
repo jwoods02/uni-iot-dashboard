@@ -11,8 +11,12 @@ class Graph extends React.Component {
     this.state = { data: [], layout: {}, frames: [], config: {} };
   }
 
-  componentWillMount() {
-    this.setGraphData();
+  componentDidUpdate() {
+    // console.log("PROPS", this.props.sensorName)
+    if (this.props.sensorName) {
+      this.setGraphData();
+      console.log("VALID PROP", this.props.sensorName)
+    }
   }
 
   setGraphData() {
