@@ -8,8 +8,9 @@ export default function graphData(sensorName) {
   db.settings({ timestampsInSnapshots: true });
 
   return new Promise(function(resolve, reject) {
-          db.collection("sensor")
-              .get()
+    db.collection("sensor")
+      .where("name", "==", sensorName)
+      .get()
       .then(sensors => {
         sensors.docs.forEach(doc => {
           doc.data().readings.forEach(reading => {
