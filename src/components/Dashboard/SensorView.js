@@ -49,14 +49,6 @@ class SensorView extends Component {
     );
   }
 
-  // populateSensorCard(name, type) {
-  //   // console.log(name, type);
-  //   // return ReactDOM.render(
-  //   //   <SensorCard sensorName={name} sensorType={type} />,
-  //   //   document.getElementById("card-row")
-  //   // );
-  // }
-
   render() {
     return <div id="card-container" className="container-fluid" />;
   }

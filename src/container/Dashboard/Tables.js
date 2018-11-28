@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Sidebar from '../../components/Dashboard/Sidebar';
-import NavTop from '../../components/Dashboard/TopNav';
-import GraphDashboard from '../../components/Dashboard/GraphDashboard';
+import TopNav from '../../components/Dashboard/TopNav';
+import Tables from '../../components/Dashboard/Tables';
 
-class Dashboard extends Component {
-
+class Notifications extends Component {
     constructor(props){
         super(props);        
             this.state = {
@@ -13,35 +12,33 @@ class Dashboard extends Component {
 
         this.handleViewSidebar = this.handleViewSidebar.bind(this);
     }
-
     handleViewSidebar(){
         this.setState({
             sidebarOpen: !this.state.sidebarOpen});
       }
-
     render() {
         if (this.state.sidebarOpen === true) 
         return (
             <div>
-            <NavTop onClick={this.handleViewSidebar}/>
+            <TopNav onClick={this.handleViewSidebar}/>
 
             <div id="wrapper">
              <Sidebar isOpen={this.state.sidebarOpen} />
-             <GraphDashboard />
+             <Tables />
              </div>
          </div>
         ) 
         else 
         return (
             <div>
-               <NavTop onClick={this.handleViewSidebar}/>
+               <TopNav onClick={this.handleViewSidebar}/>
 
                <div id="wrapper">
-                <GraphDashboard />
+                <Tables />
                 </div>
             </div>
         );
     }
 }
 
-export default Dashboard;
+export default Notifications;
