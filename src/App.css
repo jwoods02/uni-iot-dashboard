@@ -30,7 +30,7 @@ html {
 }
 
 body {
-  height: 100%;
+  min-height: 100%;
 }
 
 .image {
@@ -115,7 +115,7 @@ body.fixed-nav #content-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height:100%;
+  min-height: 100%;
 }
 
 #wrapper #content-wrapper {
@@ -286,6 +286,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 @media (min-width: 768px) {
   .sidebar {
     width: 225px !important;
+    min-height: 100%;
   }
   .sidebar .nav-item .nav-link {
     display: block;
@@ -387,6 +388,10 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 
 .card-register {
   max-width: 40rem;
+}
+
+.container-fluid {
+  height: 100%;
 }
 
 .card-shadow {
