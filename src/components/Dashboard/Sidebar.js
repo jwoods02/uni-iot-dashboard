@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../App.css";
 import Image from "../../Assets/dww.jpg";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Sidebar = props => {
   return (
@@ -11,25 +11,30 @@ const Sidebar = props => {
           <li className="nav-item active">
             <a className="nav-link" href="index.html">
               <i className="fas fa-fw fa-tachometer-alt" />
-              <span> Dashboard</span>
+              <span>Arduino Dashboard</span>
             </a>
           </li>
         </Link>
-
-        <li className="nav-item dropdown">
+        <li className="nav-item">
+          <a className="nav-link" href="charts.html">
+            <i className="fas fa-fw fa-plus" />
+            <span>New Sensor</span>
+          </a>
+        </li>
+        <li className="nav-item">
           <a
-            className="nav-link dropdown-toggle"
+            className="nav-link"
             href="#"
             id="pagesDropdown"
             role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
+            // data-toggle="dropdown"
+            // aria-haspopup="true"
+            // aria-expanded="false"
           >
             <i className="fas fa-fw fa-folder" />
             <span>Pages</span>
           </a>
-          <div className="dropdown-menu" aria-labelledby="pagesDropdown">
+          {/* <div className="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 className="dropdown-header">Login Screens:</h6>
             <a className="dropdown-item" href="login.html">
               Login
@@ -48,7 +53,7 @@ const Sidebar = props => {
             <a className="dropdown-item" href="blank.html">
               Blank Page
             </a>
-          </div>
+          </div> */}
         </li>
         <li className="nav-item">
           <a className="nav-link" href="charts.html">
