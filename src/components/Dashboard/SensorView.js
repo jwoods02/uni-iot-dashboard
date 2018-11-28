@@ -15,6 +15,25 @@ class SensorView extends Component {
     // this.setSensorCardData();
   }
 
+  setSensorCardData() {
+    getSensorCardData().then(sensorCardData => {
+      this.setState({
+        sensorName: sensorCardData[0],
+        sensorType: sensorCardData[1]
+      });
+
+      this.state.sensorName.forEach(populateSensorCard);
+      function populateSensorCard(item, index) {
+        console.log(item);
+        return (
+          <div className="row row-height">
+            <SensorCard sensorName={item} sensorType={index} />
+          </div>
+        );
+      }
+    });
+  }
+
   render() {
     return (
       <div className="container-fluid">
