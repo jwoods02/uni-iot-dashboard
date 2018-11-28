@@ -2,8 +2,23 @@ import React, { Component } from "react";
 import "../../App.css";
 import Image from "../../Assets/dww.jpg";
 import { Link } from "react-router-dom";
+import Dropdown from './Dropdown';
 
-const Sidebar = props => {
+class Sidebar extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      dropdownOpen: false
+    };
+
+this.handleViewDropdown = this.handleViewDropdown.bind(this);
+}
+handleViewDropdown(){
+  this.setState({
+      dropdownOpen: !this.state.dropdownOpen});
+}
+
+  render(){
   return (
     <div>
       <ul className="sidebar navbar-nav">
@@ -21,39 +36,23 @@ const Sidebar = props => {
             <span>New Sensor</span>
           </a>
         </li>
-        <li className="nav-item">
+        <li className="nav-item dropdown">
           <a
             className="nav-link"
             href="#"
             id="pagesDropdown"
             role="button"
+            aria-hidden="true"  
             // data-toggle="dropdown"
             // aria-haspopup="true"
             // aria-expanded="false"
           >
-            <i className="fas fa-fw fa-folder" />
+            <i className="fas fa-fw fa-folder" aria-hidden="true" />
+            <i className="pull-right" onClick={ () => {this.handleViewDropdown()}} >
+            <i class="fas fa-chevron-down mt-2"></i></i>
             <span>Pages</span>
           </a>
-          {/* <div className="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 className="dropdown-header">Login Screens:</h6>
-            <a className="dropdown-item" href="login.html">
-              Login
-            </a>
-            <a className="dropdown-item" href="register.html">
-              Register
-            </a>
-            <a className="dropdown-item" href="forgot-password.html">
-              Forgot Password
-            </a>
-            <div className="dropdown-divider" />
-            <h6 className="dropdown-header">Other Pages:</h6>
-            <a className="dropdown-item" href="404.html">
-              404 Page
-            </a>
-            <a className="dropdown-item" href="blank.html">
-              Blank Page
-            </a>
-          </div> */}
+          <Dropdown isOpen={this.state.dropdownOpen}/>   
         </li>
         <li className="nav-item">
           <a className="nav-link" href="charts.html">
@@ -77,5 +76,6 @@ const Sidebar = props => {
     </div>
   );
 };
+}
 
 export default Sidebar;
