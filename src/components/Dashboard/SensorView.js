@@ -30,6 +30,9 @@ class SensorView extends Component {
     let popSensCard = this.populateSensorCard;
     let sensName = this.state.sensorName;
     let sensType = this.state.sensorType;
+    // How to render multiple elements retrieved from JoschuaSchneider's solution:
+    // https://stackoverflow.com/questions/37378665/render-multiple-react-components-into-a-single-dom-element
+    // [Accessed: 28/11/2018]
     return ReactDOM.render(
       <div className="row row-height">
         {sensName.map((val, index) => {
