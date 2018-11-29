@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../App.css";
-import Image from "../../Assets/dww.jpg";
+import Image from "../../assets/dww.jpg";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 
