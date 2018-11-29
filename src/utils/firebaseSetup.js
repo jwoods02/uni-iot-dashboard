@@ -7,7 +7,8 @@ export default function setupFirebase() {
     apiKey: apikey,
     authDomain: "fir-test-6e084.firebaseapp.com",
     databaseURL: "https://fir-test-6e084.firebaseio.com",
-    storageBucket: "fir-test-6e084.appspot.com"
+    storageBucket: "fir-test-6e084.appspot.com",
+    projectId: "dww-iot"
   };
   firebase.initializeApp(config);
 }

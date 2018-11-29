@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Route } from "react-router-dom"
+import { Link, Route } from "react-router-dom";
 
 class GraphDashboard extends Component {
   render() {
@@ -45,17 +45,17 @@ class GraphDashboard extends Component {
                   <div className="card-body-icon">
                     <i className="fas fa-fw fa-life-ring" />
                   </div>
-                  <div className="mr-5">View Each Sensons</div>
+                  <div className="mr-5">View Sensors</div>
                 </div>
-                <a
+                <Link
+                  to="/dashboard/sensors"
                   className="card-footer text-white clearfix small z-1"
-                  href="#"
                 >
                   <span className="float-left">View Details</span>
                   <span className="float-right">
                     <i className="fas fa-angle-right" />
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -99,7 +99,6 @@ class GraphDashboard extends Component {
           </div>
         </div>
       </div>
-       
     );
   }
 }
