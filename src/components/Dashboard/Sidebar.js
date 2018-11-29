@@ -25,10 +25,10 @@ handleViewDropdown(){
 
         <Link to="/dashboard">
           <li className="nav-item active">
-            <a className="nav-link" href="index.html">
+            <div className="nav-link">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Arduino Dashboard</span>
-            </a>
+            </div>
           </li>
         </Link>
 
@@ -50,7 +50,7 @@ handleViewDropdown(){
           > 
             <i className="fas fa-fw fa-folder" aria-hidden="true" />
             <i className="pull-right" onClick={ () => {this.handleViewDropdown()}} >
-            <i class="fas fa-chevron-down mt-2"></i></i>
+            <i className="fas fa-chevron-down mt-2"></i></i>
             <span>Documentation</span>
           </div>
           <Dropdown isOpen={this.state.dropdownOpen}/>   
