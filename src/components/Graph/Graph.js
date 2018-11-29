@@ -3,21 +3,17 @@ import Plot from "react-plotly.js";
 import getGraphDataBySensorName from "../../utils/graphQueries/getGraphDataBySensorName";
 
 class Graph extends React.Component {
-  // markerColour = "black";
   constructor(props) {
     super(props);
     this.state = { data: [], layout: {}, frames: [], config: {} };
     if (this.props.sensorName) {
       this.setGraphData();
-      console.log("VALID PROP", this.props.sensorName);
     }
   }
 
   componentWillReceiveProps() {
-    // console.log("PROPS", this.props.sensorName)
     if (this.props.sensorName) {
       this.setGraphData();
-      console.log("VALID PROP", this.props.sensorName);
     }
   }
   setGraphData() {
@@ -29,13 +25,13 @@ class Graph extends React.Component {
             y: theGraphData[1],
             type: "line",
             mode: "lines+markers",
-            line: { color: "green" }
-            // fill: "tonexty"
+            line: { color: "green" },
+            fill: "tonexty"
           }
         ],
         // todo set graph title with props
         layout: {
-          title: "THIS WILL NEED TO BE SET WITH PROPS"
+          title: ""
         },
         frame: {},
         config: {}
