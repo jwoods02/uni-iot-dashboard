@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 class TopNav extends Component {
   render() {
     return (
@@ -20,9 +20,9 @@ class TopNav extends Component {
           {/* Nav  */}
           <ul className="navbar-nav my-2 ml-auto">
             <li className="nav-item dropdown no-arrow mx-1">
-              <a
+              <Link
                 className="nav-link dropdown-toggle"
-                href="#"
+                to="/dashboard/notifications"
                 id="alertsDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -31,7 +31,7 @@ class TopNav extends Component {
               >
                 <i className="fas fa-bell fa-fw" />
                 <span className="badge badge-danger">9+</span>
-              </a>
+              </Link>
               <div
                 className="dropdown-menu dropdown-menu-right"
                 aria-labelledby="alertsDropdown"

@@ -233,7 +233,13 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 .sidebar {
   width: 90px !important;
   background-color: #212529;
-  min-height: 100%;
+  min-height: 100% !important;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
 }
 
 .sidebar .nav-item:last-child {
