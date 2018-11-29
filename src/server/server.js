@@ -8,4 +8,3 @@ admin.initializeApp({
     databaseURL: 'https://fir-test-6e084.firebaseio.com'
 });
 
-//todo do we need this

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, Route, BrowserRouter } from "react-router-dom";
-import SensorTherm from "../../Assets/dht-11.png";
-import SensorLight from "../../Assets/tsl2561.png";
+import SensorTherm from "../../assets/dht-11.png";
+import SensorLight from "../../assets/tsl2561.png";
 
 class SensorCard extends Component {
   constructor(props) {
