@@ -11,7 +11,6 @@ export default class SensorInfoCardContainer extends Component {
     };
 
     getSensorNames().then(sensorNames => {
-      console.log(sensorNames);
       this.setState({
         sensorNames: sensorNames
       });
@@ -22,7 +21,6 @@ export default class SensorInfoCardContainer extends Component {
 
   renderSensors() {
     let sensorList = [];
-    console.log(this.state.sensorNames);
     this.state.sensorNames.forEach((sensorName, index) => {
       sensorList.push(<SensorInfoCard sensor={sensorName} />);
     });
