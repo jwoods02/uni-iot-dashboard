@@ -22,6 +22,7 @@ handleViewDropdown(){
   return (
     <div>
       <ul className="sidebar navbar-nav">
+
         <Link to="/dashboard">
           <li className="nav-item active">
             <a className="nav-link" href="index.html">
@@ -30,45 +31,47 @@ handleViewDropdown(){
             </a>
           </li>
         </Link>
+
         <li className="nav-item">
-          <a className="nav-link" href="charts.html">
+          <div className="nav-link">
             <i className="fas fa-fw fa-plus" />
             <span>New Sensor</span>
-          </a>
+          </div>
         </li>
-        <li className="nav-item dropdown">
-          <a
+
+        <li className="nav-item">
+          <div
             className="nav-link"
-            href="#"
-            id="pagesDropdown"
-            role="button"
+            // role="button"
             aria-hidden="true"  
-            // data-toggle="dropdown"
-            // aria-haspopup="true"
-            // aria-expanded="false"
-          >
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          > 
             <i className="fas fa-fw fa-folder" aria-hidden="true" />
             <i className="pull-right" onClick={ () => {this.handleViewDropdown()}} >
             <i class="fas fa-chevron-down mt-2"></i></i>
-            <span>Pages</span>
-          </a>
+            <span>Documentation</span>
+          </div>
           <Dropdown isOpen={this.state.dropdownOpen}/>   
         </li>
+
         <li className="nav-item">
-          <a className="nav-link" href="charts.html">
+          <div className="nav-link">
             <i className="fas fa-fw fa-chart-area" />
             <span>Charts</span>
-          </a>
+          </div>
         </li>
 
         <Link to="/dashboard/tables">
           <li className="nav-item">
-            <a className="nav-link" href="tables.html">
+            <div className="nav-link">
               <i className="fas fa-fw fa-table" />
               <span>Tables</span>
-            </a>
+            </div>
           </li>
         </Link>
+
         <div className="image">
           <img src={Image} alt="data works wales img not found" />
         </div>
