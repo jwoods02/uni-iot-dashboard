@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link, Route } from "react-router-dom"
-import SensorInfoCard from "./SensorInfoCard";
+import { Link, Route } from "react-router-dom";
+import SensorInfoCardContainer from "./SensorInfoCardContainer";
 
 class GraphDashboard extends Component {
   render() {
@@ -63,10 +63,9 @@ class GraphDashboard extends Component {
 
           {/* <!-- Area Chart Example--> */}
 
-          <SensorInfoCard/>
+          <SensorInfoCardContainer />
         </div>
       </div>
-       
     );
   }
 }
