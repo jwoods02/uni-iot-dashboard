@@ -48,15 +48,15 @@ class GraphDashboard extends Component {
                   </div>
                   <div className="mr-5">View Each Sensor</div>
                 </div>
-                <a
+                <Link
+                  to="/dashboard/sensors"
                   className="card-footer text-white clearfix small z-1"
-                  href="#"
                 >
                   <span className="float-left">View Details</span>
                   <span className="float-right">
                     <i className="fas fa-angle-right" />
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

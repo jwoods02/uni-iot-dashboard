@@ -8,6 +8,7 @@ import Dashboard from "./container/Dashboard/Dashboard";
 import { Redirect } from "react-router";
 import firebase from "firebase";
 import Notifications from "./container/Dashboard/Notifications";
+import SensorView from "./container/Dashboard/SensorView";
 import Tables from "./container/Dashboard/Tables";
 
 function AuthenticatedRoute({ component: Component, authenticated, ...rest }) {
@@ -96,6 +97,7 @@ class App extends Component {
               path="/dashboard/notifications"
               component={Notifications}
             />
+            <Route exact path="/dashboard/sensors" component={SensorView} />
             {/* <AuthenticatedRoute
               requireAuth={true}
               authenticated={this.state.authenticated}

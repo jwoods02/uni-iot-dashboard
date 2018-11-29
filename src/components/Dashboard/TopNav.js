@@ -15,7 +15,7 @@ class TopNav extends Component {
 
           <button
             className="btn btn-link btn-sm text-white order-1 order-sm-0"
-            id="sidebarToggle"
+            onClick={this.props.onClick}
             href="#"
           >
             <i className="fas fa-bars" />
