@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Graph from "../Graph/Graph";
 import SensorInfoCard from "./SensorInfoCard";
 import getSensorNames from "../../utils/graphQueries/getSensorNames";
 
