@@ -8,15 +8,15 @@ export default class SensorInfoCardContainer extends Component {
     super(props);
 
     this.state = {
-      sensorNames: ["fridge_temp_1"]
+      sensorNames: []
     };
 
-    // getSensorNames().then(sensorNames => {
-    //   console.log(sensorNames);
-    //   this.setState({
-    //     sensorNames: sensorNames
-    //   });
-    // });
+    getSensorNames().then(sensorNames => {
+      console.log(sensorNames);
+      this.setState({
+        sensorNames: sensorNames
+      });
+    });
   }
 
   componentWillMount() {}
@@ -24,9 +24,9 @@ export default class SensorInfoCardContainer extends Component {
   renderSensors() {
     let sensorList = [];
     console.log(this.state.sensorNames);
-    for (const sensorName in this.state.sensorNames) {
+    this.state.sensorNames.forEach((sensorName, index) => {
       sensorList.push(<SensorInfoCard sensor={sensorName} />);
-    }
+    });
 
     return sensorList;
   }

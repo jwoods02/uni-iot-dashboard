@@ -19,7 +19,6 @@ class SensorInfoCard extends Component {
             Updated 5 seconds ago
           </div>
         </div>
-        );
       </div>
     );
   }
