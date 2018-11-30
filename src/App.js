@@ -90,7 +90,7 @@ class App extends Component {
                 );
               }}
             />
-            {/*<Route exact path="/dashboard" component={Dashboard} />*/}
+            <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/dashboard/tables" component={Tables} />
             <Route
               exact
@@ -98,14 +98,14 @@ class App extends Component {
               component={Notifications}
             />
             <Route exact path="/dashboard/sensors" component={SensorView} />
-            <AuthenticatedRoute
+            {/* <AuthenticatedRoute
               requireAuth={true}
               authenticated={this.state.authenticated}
               exact
               path="/dashboard"
               component={Dashboard}
-            />
-              {/*todo comment during development*/}
+            /> */}
+            {/*todo comment during development*/}
           </div>
         </Router>
       </div>
