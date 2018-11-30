@@ -8,7 +8,7 @@ class SensorInfoCard extends Component {
         <div className="card mb-3">
           <div className="card-header">
             <i className="fas fa-chart-area" />
-            IOT Sensor {this.props.sensor}
+             &nbsp; IOT Sensor {this.props.sensor}
           </div>
           <div className="card-body">
             <canvas id="myAreaChart" width="100%" height="30" />

@@ -7,15 +7,6 @@ class GraphDashboard extends Component {
     return (
       <div id="content-wrapper">
         <div className="container-fluid">
-          {/* <!-- Breadcrumbs--> */}
-          <ol className="breadcrumb mt-3">
-            <li className="breadcrumb-item">
-              <a href="#">Dashboard</a>
-            </li>
-            <li href="#" className="breadcrumb-item active">
-              Overview
-            </li>
-          </ol>
 
           {/* <!-- Icon Cards--> */}
           <div className="row">
@@ -26,7 +17,7 @@ class GraphDashboard extends Component {
                     <i className="fas fa-fw fa-comments" />
                   </div>
 
-                  <div className="mr-5">View all notifications</div>
+                  <div className="mr-5">View All Notifications</div>
                 </div>
                 <Link
                   to="/dashboard/notifications"
@@ -46,7 +37,7 @@ class GraphDashboard extends Component {
                   <div className="card-body-icon">
                     <i className="fas fa-fw fa-life-ring" />
                   </div>
-                  <div className="mr-5">View Each Sensor</div>
+                  <div className="mr-5">View All Sensors</div>
                 </div>
                 <Link
                   to="/dashboard/sensors"
@@ -60,9 +51,6 @@ class GraphDashboard extends Component {
               </div>
             </div>
           </div>
-
-          {/* <!-- Area Chart Example--> */}
-
           <SensorInfoCardContainer />
         </div>
       </div>

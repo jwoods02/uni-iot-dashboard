@@ -27,7 +27,7 @@ class Sidebar extends Component {
             <li className="nav-item active">
               <div className="nav-link">
                 <i className="fas fa-fw fa-tachometer-alt" />
-                <span>Arduino Dashboard</span>
+                <span> &nbsp; Arduino Dashboard</span>
               </div>
             </li>
           </Link>
@@ -35,7 +35,7 @@ class Sidebar extends Component {
           <li className="nav-item">
             <div className="nav-link">
               <i className="fas fa-fw fa-plus" />
-              <span>New Sensor</span>
+              <span> &nbsp; New Sensor</span>
             </div>
           </li>
 
@@ -57,7 +57,7 @@ class Sidebar extends Component {
               >
                 <i className="fas fa-chevron-down mt-2" />
               </i>
-              <span>Documentation</span>
+              <span>&nbsp; Documentation</span>
             </div>
             <Dropdown isOpen={this.state.dropdownOpen} />
           </li>
@@ -65,7 +65,7 @@ class Sidebar extends Component {
           <li className="nav-item">
             <div className="nav-link">
               <i className="fas fa-fw fa-chart-area" />
-              <span>Charts</span>
+              <span>&nbsp; Charts</span>
             </div>
           </li>
 
@@ -73,7 +73,7 @@ class Sidebar extends Component {
             <li className="nav-item">
               <div className="nav-link">
                 <i className="fas fa-fw fa-table" />
-                <span>Tables</span>
+                <span>&nbsp; Tables</span>
               </div>
             </li>
           </Link>
