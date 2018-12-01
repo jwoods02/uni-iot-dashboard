@@ -105,6 +105,7 @@ class App extends Component {
               path="/dashboard"
               component={Dashboard}
             /> */}
+            {/*todo comment during development*/}
           </div>
         </Router>
       </div>
