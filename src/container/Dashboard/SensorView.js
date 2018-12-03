@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Sidebar from "../../components/Dashboard/Sidebar";
 import NavTop from "../../components/Dashboard/TopNav";
 import Sensors from "../../components/Dashboard/SensorView";
+import SensorPlus from "../../components/Dashboard/newSensorPlus";
 
 class SensorView extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class SensorView extends Component {
           <div id="wrapper">
             <Sidebar isOpen={this.state.sidebarOpen} />
             <Sensors />
+            <SensorPlus/>
           </div>
         </div>
       );
@@ -38,6 +40,7 @@ class SensorView extends Component {
 
           <div id="wrapper">
             <Sensors />
+            <SensorPlus/>
           </div>
         </div>
       );

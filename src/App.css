@@ -18,6 +18,11 @@
   color: white;
 }
 
+.icon-plus{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
 /*!
  * Start Bootstrap - SB Admin v5.0.2 (https://startbootstrap.com/template-overviews/sb-admin)
  * Copyright 2013-2018 Start Bootstrap

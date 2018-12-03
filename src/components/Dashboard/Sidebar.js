@@ -23,7 +23,8 @@ class Sidebar extends Component {
     return (
       <div>
         <ul className="sidebar navbar-nav">
-          <Link to="/dashboard">
+        
+          <Link to="/dashboard" style={{ textDecoration: 'none' }}>
             <li className="nav-item active">
               <div className="nav-link">
                 <i className="fas fa-fw fa-tachometer-alt" />
@@ -33,22 +34,15 @@ class Sidebar extends Component {
           </Link>
 
           <li className="nav-item">
-            <div className="nav-link">
-              <i className="fas fa-fw fa-plus" />
-              <span> &nbsp; New Sensor</span>
-            </div>
-          </li>
-
-          <li className="nav-item">
             <div
               className="nav-link"
               // role="button"
-              aria-hidden="true"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
+              // aria-hidden="true"
+              // data-toggle="dropdown"
+              // aria-haspopup="true"
+              // aria-expanded="false"
             >
-              <i className="fas fa-fw fa-folder" aria-hidden="true" />
+              <i className="fas fa-fw fa-folder"/>
               <i
                 className="pull-right"
                 onClick={() => {
@@ -69,7 +63,7 @@ class Sidebar extends Component {
             </div>
           </li>
 
-          <Link to="/dashboard/tables">
+          <Link to="/dashboard/tables" style={{ textDecoration: 'none' }}>
             <li className="nav-item">
               <div className="nav-link">
                 <i className="fas fa-fw fa-table" />
