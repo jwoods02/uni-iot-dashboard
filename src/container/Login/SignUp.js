@@ -19,6 +19,7 @@ class Login extends Component {
 
 
     handleSubmit = () => {
+        console.log("submit handled");
         firebase
             .auth()
             .createUserWithEmailAndPassword(this.state.email, this.state.password)
@@ -35,11 +36,23 @@ class Login extends Component {
                 console.log(error.code + " " + error.message);
             });
     };
+    //
+    // handleInputChanged = (event) => {
+    //     const target = event.target;
+    //     const value = target.value;
+    //     const name = target.name;
+    //
+    //     this.setState({
+    //         [name]: value
+    //     });
+    // };
 
     render() {
         return (
            <SignUpForm
-           onSubmitForm={this.handleSubmit()}/>
+           onSubmitForm={this.handleSubmit()}
+           // handleInputChanged={this.handleInputChanged()}
+           />
         );
     }
 }

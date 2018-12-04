@@ -12,6 +12,7 @@ const SignUpForm = (props) => {
                             <div className="form-label-group">
                                 <input
                                     id="inputUsername"
+                                    name="username"
                                     onChange={props.handleInputChanged}
                                     className="form-control text-center"
                                     placeholder="Create a username"
@@ -59,6 +60,7 @@ const SignUpForm = (props) => {
                             <div className="form-label-group">
                                 <input
                                     id="inputPhoneNumber"
+                                    name="phoneNumber"
                                     onChange={props.handleInputChanged}
                                     className="form-control text-center"
                                     placeholder="Enter your phone number"
