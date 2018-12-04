@@ -6,6 +6,7 @@ import SensorPlus from "../../components/Dashboard/newSensorPlus";
 import Modal from 'react-responsive-modal';
 import postNewSensor from '../../utils/sensorCardQueries/sendSensorDetails';
 import { withRouter } from "react-router-dom";
+
 class SensorView extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +14,8 @@ class SensorView extends Component {
       sidebarOpen: true,
       show: false,
       sensorName: "",
-      sensorType: ""
+      sensorType: "",
+      success: false
     };
     this.handleModal = this.handleModal.bind(this);
     this.handleViewSidebar = this.handleViewSidebar.bind(this);
@@ -33,13 +35,17 @@ class SensorView extends Component {
   }
   handleModal() {
     this.setState({ show: !this.state.show });
-    console.log("popup",this.state.show)
   }
 
-  sendSensorData(e){
+  sendSensorData(e) {
     const router = this.props;
     e.preventDefault();
     postNewSensor(this.state.sensorName, this.state.sensorType);
+      // .then(function() {
+      //   console.log("successful")
+      //   this.setState({success: true});
+      //   console.log(this.state.success)
+      // });
   }
 
   render() {
@@ -78,7 +84,9 @@ class SensorView extends Component {
                       </select>
                     </div>
                     
-                    <input type="Submit" value="Submit" className="btn btn-primary"></input>
+                    <input type="Submit" defaultValue="Submit" className="btn btn-primary"></input>
+
+                    {this.state.success ? (<p>Hello</p>) : null}
 
                   </form>
                   </div>

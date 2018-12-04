@@ -45,7 +45,7 @@ class SensorCard extends Component {
 
     return (
       <div className="col mb-4 ml-2 mt-3">
-        <div className="card card-shadow text-white orange-bg o-hidden h-100">
+        <div className="card card-shadow text-white bg-dark o-hidden h-100">
           <BrowserRouter>
             <Link
               to="/dashboard/sensors"
