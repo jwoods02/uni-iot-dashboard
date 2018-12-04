@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, Route, BrowserRouter } from "react-router-dom";
 import SensorTherm from "../../assets/dht-11.png";
 import SensorLight from "../../assets/tsl2561.png";
+import '../../App.css';
 
 class SensorCard extends Component {
   constructor(props) {
@@ -44,11 +45,12 @@ class SensorCard extends Component {
 
     return (
       <div className="col mb-4 ml-2 mt-3">
-        <div className="card card-shadow text-white bg-danger o-hidden h-100">
+        <div className="card card-shadow text-white orange-bg o-hidden h-100">
           <BrowserRouter>
             <Link
               to="/dashboard/sensors"
               className=" text-white clearfix small z-1"
+              style={{ textDecoration: 'none' }}
             >
               {card}
             </Link>

@@ -1,29 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class SensorForm extends Component {
-  constructor(props){
-    this.state = {
-      modalOpen: false
-    };
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-    this.handleViewModal = this.handleViewModal.bind(this);
-  }
-  handleViewModal() {
-    console.log("brah")
-    this.setState({
-      modalOpen: !this.state.modalOpen
-    });
-  }
+  componentDidUpdate() {}
+
   render() {
     return (
       <div>
-        <i className="far fa-5x fa-plus-square icon-plus"
-        onClick={() => {
-          this.handleViewModal();
-        }}>
-        </i>
+        <i
+          className="far fa-5x fa-plus-square icon-plus"
+          onClick={this.props.onClick}
+        />
       </div>
-    )
+    );
   }
 }
-  export default SensorForm;
+export default SensorForm;
