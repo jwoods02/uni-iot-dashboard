@@ -10,6 +10,7 @@ import firebase from "firebase";
 import Notifications from "./container/Dashboard/Notifications";
 import SensorView from "./container/Dashboard/SensorView";
 import Tables from "./container/Dashboard/Tables";
+import SignUp from "./container/Login/SignUp";
 
 function AuthenticatedRoute({ component: Component, authenticated, ...rest }) {
   return (
@@ -39,8 +40,10 @@ class App extends Component {
     };
   }
 
-  setCurrentUser(user) {
-    if (user) {
+  setCurrentUser() {
+    firebase.auth().onAuthStateChanged(function(user) {
+
+      if (user) {
       this.setState({
         currentUser: user,
         authenticated: true
@@ -51,6 +54,7 @@ class App extends Component {
         authenticated: false
       });
     }
+  })
   }
 
   componentWillMount() {
@@ -59,13 +63,11 @@ class App extends Component {
         this.setState({
           authenticated: true,
           currentUser: user,
-          loading: false
         });
       } else {
         this.setState({
           authenticated: false,
           currentUser: null,
-          loading: false
         });
       }
     });
@@ -98,6 +100,7 @@ class App extends Component {
               component={Notifications}
             />
             <Route exact path="/dashboard/sensors" component={SensorView} />
+            <Route exact path="/register" component={SignUp}/>
             {/* <AuthenticatedRoute
               requireAuth={true}
               authenticated={this.state.authenticated}
