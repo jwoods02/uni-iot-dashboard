@@ -12,7 +12,7 @@ const SignUpForm = (props) => {
                             <div className="form-label-group">
                                 <input
                                     id="inputUsername"
-                                    name="username"
+                                    name="displayName"
                                     onChange={props.handleInputChanged}
                                     className="form-control text-center"
                                     placeholder="Create a username"
