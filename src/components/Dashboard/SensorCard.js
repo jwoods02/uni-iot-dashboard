@@ -11,7 +11,7 @@ class SensorCard extends Component {
 
   render() {
     let card;
-    if (this.props.sensorType == "Lighting") {
+    if (this.props.sensorType == "LIGHT") {
       card = (
         <div className="card-body">
           <i className="fas fa-3x fa-lightbulb" />
@@ -26,7 +26,7 @@ class SensorCard extends Component {
           <div className="card-text-bottom-l2">{this.props.sensorType}</div>
         </div>
       );
-    } else if (this.props.sensorType == "Temperature") {
+    } else if (this.props.sensorType == "TEMP") {
       card = (
         <div className="card-body">
           <i className="fas fa-3x fa-temperature-high" />{" "}
