@@ -60,10 +60,22 @@ class App extends Component {
   componentWillMount() {
     this.removeAuthListener = firebase.auth().onAuthStateChanged(user => {
       if (user) {
+
         this.setState({
           authenticated: true,
           currentUser: user,
         });
+
+
+
+          user.providerData.forEach(function (profile) {
+              console.log("Sign-in provider: " + profile.providerId);
+              console.log("  Provider-specific UID: " + profile.uid);
+              console.log("  Dispay Name: " + profile.displayName);
+              console.log("  Email: " + profile.email);
+              console.log("  Phone Number: " + profile.phoneNumber);
+          });
+
       } else {
         this.setState({
           authenticated: false,
