@@ -78,8 +78,8 @@ class SensorView extends Component {
                     <div className="form-group">
                       <label >Sensor Type</label>
                       <select  name="sensorType"onChange={this.handleChange} value={this.state.sensorType} className="form-control" id="exampleSelect1">
-                        <option value="LIGHT">Lighting</option>
                         <option value="Humidity Sensors">Humidity Sensor</option>
+                        <option value="LIGHT">Lighting</option>
                         <option value="Air Quality Sensor">Air Quality Sensor</option>
                         <option value="TEMP">Temperature</option>
                         <option value="RFI READER">RFI reader</option>
@@ -134,16 +134,28 @@ class SensorView extends Component {
                     <div className="form-group">
                       <label >Sensor Type</label>
                       <select  name="sensorType"onChange={this.handleChange} value={this.state.sensorType} className="form-control" id="exampleSelect1">
-                        <option value="Light">Light</option>
                         <option value="Humidity Sensors">Humidity Sensor</option>
+                        <option value="LIGHT">Lighting</option>
                         <option value="Air Quality Sensor">Air Quality Sensor</option>
-                        <option value="TEMP">TEMP</option>
+                        <option value="TEMP">Temperature</option>
                         <option value="RFI READER">RFI reader</option>
                       </select>
                     </div>
-                    
-                    <input type="Submit" value="Submit" className="btn btn-primary"></input>
 
+                    <div className="form-group">
+                    <div className="row">
+                    <input type="Submit" defaultValue="Submit" className="btn btn-primary ml-3"></input>
+
+                    {/* success feedback on sucessful db write */}
+                    {this.state.success ? (
+                      <div>
+                      <i class="fas fa-check bg-success ml-4"></i> 
+                      <small className="form-text text-muted ml-4">New sensor successfully added to db</small>
+                      </div>
+                      ) : null}
+
+                    </div>
+                    </div>
                   </form>
                   </div>
                 </Modal>
