@@ -78,10 +78,10 @@ class SensorView extends Component {
                     <div className="form-group">
                       <label >Sensor Type</label>
                       <select  name="sensorType"onChange={this.handleChange} value={this.state.sensorType} className="form-control" id="exampleSelect1">
-                        <option value="Lighting">Lighting</option>
+                        <option value="LIGHT">Lighting</option>
                         <option value="Humidity Sensors">Humidity Sensor</option>
                         <option value="Air Quality Sensor">Air Quality Sensor</option>
-                        <option value="Temperature">Temperature</option>
+                        <option value="TEMP">Temperature</option>
                         <option value="RFI READER">RFI reader</option>
                       </select>
                     </div>
