@@ -10,6 +10,7 @@ import firebase from "firebase";
 import Notifications from "./container/Dashboard/Notifications";
 import SensorView from "./container/Dashboard/SensorView";
 import Tables from "./container/Dashboard/Tables";
+import DocumentationHome from "./container/Documentation/DocumentationHome";
 
 function AuthenticatedRoute({ component: Component, authenticated, ...rest }) {
   return (
@@ -98,6 +99,7 @@ class App extends Component {
               component={Notifications}
             />
             <Route exact path="/dashboard/sensors" component={SensorView} />
+            <Route exact path="/documentation" component={DocumentationHome} />
             {/* <AuthenticatedRoute
               requireAuth={true}
               authenticated={this.state.authenticated}
