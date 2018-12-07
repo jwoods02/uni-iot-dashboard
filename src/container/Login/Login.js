@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import firebase from "firebase";
 import { Redirect } from "react-router";
 
@@ -47,7 +48,6 @@ class Login extends Component {
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log("changing page");
         this.setState({ redirect: true });
       }
     });
@@ -113,8 +113,8 @@ class Login extends Component {
             <div className="form-group">
               <div className="checkbox" />
             </div>
-            {/* <div className=""> */}
-            {/* <Link to="/dashboard"> */}
+
+            {/************  todo fix duplicate props "className" in same tag*/}
             <input
               className="btn btn-primary btn-block "
               type="submit"
@@ -122,15 +122,11 @@ class Login extends Component {
               value="Login"
               id="submit"
             />
-            {/* </Link> */}
-            {/* </div> */}
-
-            {/* <a className="btn btn-primary btn-block" type="submit" value="Login" id="submit">Login</a> */}
           </form>
           <div className="text-center">
-            <a className="d-block small mt-3" href="register.html">
+            <Link className="d-block small mt-3" to="/register">
               Register an Account
-            </a>
+            </Link>
             <a className="d-block small" href="forgot-password.html">
               Forgot Password?
             </a>

@@ -10,6 +10,7 @@ import firebase from "firebase";
 import Notifications from "./container/Dashboard/Notifications";
 import SensorView from "./container/Dashboard/SensorView";
 import Tables from "./container/Dashboard/Tables";
+import SignUp from "./container/Login/SignUp";
 
 function AuthenticatedRoute({ component: Component, authenticated, ...rest }) {
   return (
@@ -39,8 +40,10 @@ class App extends Component {
     };
   }
 
-  setCurrentUser(user) {
-    if (user) {
+  setCurrentUser() {
+    firebase.auth().onAuthStateChanged(function(user) {
+
+      if (user) {
       this.setState({
         currentUser: user,
         authenticated: true
@@ -51,21 +54,31 @@ class App extends Component {
         authenticated: false
       });
     }
+  })
   }
 
   componentWillMount() {
     this.removeAuthListener = firebase.auth().onAuthStateChanged(user => {
       if (user) {
+
         this.setState({
           authenticated: true,
           currentUser: user,
-          loading: false
         });
+
+
+
+          user.providerData.forEach(function (profile) {
+              console.log("Sign-in provider: " + profile.providerId);
+              console.log("  Provider-specific UID: " + profile.uid);
+              console.log("  Dispay Name: " + profile.displayName);
+              console.log("  Email: " + profile.email);
+          });
+
       } else {
         this.setState({
           authenticated: false,
           currentUser: null,
-          loading: false
         });
       }
     });
@@ -98,6 +111,7 @@ class App extends Component {
               component={Notifications}
             />
             <Route exact path="/dashboard/sensors" component={SensorView} />
+            <Route exact path="/register" component={SignUp}/>
             {/* <AuthenticatedRoute
               requireAuth={true}
               authenticated={this.state.authenticated}
