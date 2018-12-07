@@ -48,7 +48,6 @@ class Login extends Component {
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-
         this.setState({ redirect: true });
       }
     });
@@ -123,13 +122,11 @@ class Login extends Component {
               value="Login"
               id="submit"
             />
-
           </form>
           <div className="text-center">
-              <Link className="d-block small mt-3"
-                  to="/register">
-                  Register an Account
-              </Link>
+            <Link className="d-block small mt-3" to="/register">
+              Register an Account
+            </Link>
             <a className="d-block small" href="forgot-password.html">
               Forgot Password?
             </a>
