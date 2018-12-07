@@ -19,6 +19,7 @@
 .env.production.local
 /.idea
 firebase.json
+src/contentful.js
 src/firebase.js
 
 npm-debug.log*
