@@ -16,10 +16,6 @@ const db = admin.firestore();
 
 const sensorRef = db.collection("sensor").doc("VFFRWeb6fwH6hfUu20NA");
 
-// Atomically add
-// let arrUnion = sensorRef.update({
-//   readings: admin.firestore.FieldValue.arrayUnion({ date, value })
-// });
 
 port.pipe(parser);
 parser.on("data", value => {
@@ -28,5 +24,11 @@ parser.on("data", value => {
   console.log(date);
   sensorRef.update({
     readings: admin.firestore.FieldValue.arrayUnion({ date, value })
-  });
+  })
+      .then(
+          
+      )
+      .catch(
+          console.log("arduino sensor error")
+      )
 });
