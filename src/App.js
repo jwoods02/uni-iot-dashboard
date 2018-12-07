@@ -73,7 +73,6 @@ class App extends Component {
               console.log("  Provider-specific UID: " + profile.uid);
               console.log("  Dispay Name: " + profile.displayName);
               console.log("  Email: " + profile.email);
-              console.log("  Phone Number: " + profile.phoneNumber);
           });
 
       } else {

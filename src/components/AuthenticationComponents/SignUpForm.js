@@ -11,7 +11,7 @@ const SignUpForm = (props) => {
                         <div className="form-group">
                             <div className="form-label-group">
                                 <input
-                                    id="inputUsername"
+                                    id="displayName"
                                     name="displayName"
                                     onChange={props.handleInputChanged}
                                     className="form-control text-center"
@@ -56,19 +56,19 @@ const SignUpForm = (props) => {
 
 
                         {/* Phone Number Section*/}
-                        <div className="form-group">
-                            <div className="form-label-group">
-                                <input
-                                    id="inputPhoneNumber"
-                                    name="phoneNumber"
-                                    onChange={props.handleInputChanged}
-                                    className="form-control text-center"
-                                    placeholder="Enter your phone number"
-                                    required="required"
-                                    autoFocus="autoFocus"
-                                />
-                            </div>
-                        </div>
+                        {/*<div className="form-group">*/}
+                            {/*<div className="form-label-group">*/}
+                                {/*<input*/}
+                                    {/*id="inputPhoneNumber"*/}
+                                    {/*name="phoneNumber"*/}
+                                    {/*onChange={props.handleInputChanged}*/}
+                                    {/*className="form-control text-center"*/}
+                                    {/*placeholder="Enter your phone number"*/}
+                                    {/*required="required"*/}
+                                    {/*autoFocus="autoFocus"*/}
+                                {/*/>*/}
+                            {/*</div>*/}
+                        {/*</div>*/}
                         <input
                             className="btn btn-primary btn-block btn btn-primary round"
                             type="submit"
