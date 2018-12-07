@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
 import firebase from "firebase";
-import * as ROUTES from "../../constants/routes";
 import { Redirect } from "react-router";
-
-// Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:
-const passwordRegex =
-  "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,}$";
 
 class Login extends Component {
   constructor(props) {

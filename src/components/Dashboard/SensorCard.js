@@ -1,17 +1,14 @@
 import React, { Component } from "react";
-import { Link, Route, BrowserRouter } from "react-router-dom";
+import { Link, BrowserRouter } from "react-router-dom";
 import SensorTherm from "../../assets/dht-11.png";
 import SensorLight from "../../assets/tsl2561.png";
 import '../../App.css';
 
 class SensorCard extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     let card;
-    if (this.props.sensorType == "LIGHT") {
+    if (this.props.sensorType === "LIGHT") {
       card = (
         <div className="card-body">
           <i className="fas fa-3x fa-lightbulb" />
@@ -26,7 +23,7 @@ class SensorCard extends Component {
           <div className="card-text-bottom-l2">{this.props.sensorType}</div>
         </div>
       );
-    } else if (this.props.sensorType == "TEMP") {
+    } else if (this.props.sensorType === "TEMP") {
       card = (
         <div className="card-body">
           <i className="fas fa-3x fa-temperature-high" />{" "}
