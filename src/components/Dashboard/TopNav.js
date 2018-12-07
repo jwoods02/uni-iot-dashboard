@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-
-
+import { Link } from "react-router-dom";
 class TopNav extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +14,7 @@ class TopNav extends Component {
 
           <button
             className="btn btn-link btn-sm text-white order-1 order-sm-0"
-            id="sidebarToggle"
+            onClick={this.props.onClick}
             href="#"
           >
             <i className="fas fa-bars" />
@@ -24,9 +23,9 @@ class TopNav extends Component {
           {/* Nav  */}
           <ul className="navbar-nav my-2 ml-auto">
             <li className="nav-item dropdown no-arrow mx-1">
-              <a
+              <Link
                 className="nav-link dropdown-toggle"
-                href="#"
+                to="/dashboard/notifications"
                 id="alertsDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -35,39 +34,10 @@ class TopNav extends Component {
               >
                 <i className="fas fa-bell fa-fw" />
                 <span className="badge badge-danger">9+</span>
-              </a>
+              </Link>
               <div
                 className="dropdown-menu dropdown-menu-right"
                 aria-labelledby="alertsDropdown"
-              >
-                <a className="dropdown-item" href="#">
-                  Action
-                </a>
-                <a className="dropdown-item" href="#">
-                  Another action
-                </a>
-                <div className="dropdown-divider" />
-                <a className="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </div>
-            </li>
-            <li className="nav-item dropdown no-arrow mx-1">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="messagesDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i className="fas fa-envelope fa-fw" />
-                <span className="badge badge-danger">7</span>
-              </a>
-              <div
-                className="dropdown-menu dropdown-menu-right"
-                aria-labelledby="messagesDropdown"
               >
                 <a className="dropdown-item" href="#">
                   Action

@@ -1,96 +1,48 @@
 import React, { Component } from "react";
-import '../../App.css';
+import "../../App.css";
+import NotificationsCard from "./NotificationsCard";
+import notificationData from "../../utils/notificationQueries";
 
 class Notifications extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sensorName: "",
+      trigger_time: "",
+      trigger_reading: "",
+      title: "",
+      message: ""
+    };
+  }
+
+  componentWillMount() {
+    this.setNotificationCardData();
+  }
+  setNotificationCardData() {
+    notificationData().then(theNotificationData => {
+      console.log(theNotificationData[1]);
+      this.setState({
+        title: theNotificationData[0],
+        message: theNotificationData[2],
+        trigger_reading: theNotificationData[4]
+      });
+      this.forceUpdate();
+    });
+  }
+
   render() {
     return (
       <div id="content-wrapper">
         <h1 className="ml-3">Notifications</h1>
-        <div class="list-group col">
-          <a
-            href="#"
-            class="list-group-item list-group-item-action flex-column align-items-start blue"
-          >
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small>3 days ago</small>
-            </div>
-            <p class="mb-1">
-              Donec id elit non mi porta gravida at eget metus. Maecenas sed
-              diam eget risus varius blandit.
-            </p>
-            <small>Donec id elit non mi porta.</small>
-          </a>
-          <a
-            href="#"
-            class="list-group-item list-group-item-action flex-column align-items-start blue"
-          >
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small>3 days ago</small>
-            </div>
-            <p class="mb-1">
-              Donec id elit non mi porta gravida at eget metus. Maecenas sed
-              diam eget risus varius blandit.
-            </p>
-            <small>Donec id elit non mi porta.</small>
-          </a>
-          <a
-            href="#"
-            class="list-group-item list-group-item-action flex-column align-items-start blue"
-          >
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small>3 days ago</small>
-            </div>
-            <p class="mb-1">
-              Donec id elit non mi porta gravida at eget metus. Maecenas sed
-              diam eget risus varius blandit.
-            </p>
-            <small>Donec id elit non mi porta.</small>
-          </a>
-          <a
-            href="#"
-            class="list-group-item list-group-item-action flex-column align-items-start blue"
-          >
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small>3 days ago</small>
-            </div>
-            <p class="mb-1">
-              Donec id elit non mi porta gravida at eget metus. Maecenas sed
-              diam eget risus varius blandit.
-            </p>
-            <small>Donec id elit non mi porta.</small>
-          </a>
-          <a
-            href="#"
-            class="list-group-item list-group-item-action flex-column align-items-start blue"
-          >
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small class="text-muted">3 days ago</small>
-            </div>
-            <p class="mb-1">
-              Donec id elit non mi porta gravida at eget metus. Maecenas sed
-              diam eget risus varius blandit.
-            </p>
-            <small class="text-muted">Donec id elit non mi porta.</small>
-          </a>
-          <a
-            href="#"
-            class="list-group-item list-group-item-action flex-column align-items-start blue"
-          >
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small class="text-muted">3 days ago</small>
-            </div>
-            <p class="mb-1">
-              Donec id elit non mi porta gravida at eget metus. Maecenas sed
-              diam eget risus varius blandit.
-            </p>
-            <small class="text-muted">Donec id elit non mi porta.</small>
-          </a>
+        <div className="list-group col">
+          <NotificationsCard
+            title={this.state.title}
+            sensorName={this.state.sensorName}
+            trigger_time={this.state.trigger_time}
+            message={this.state.message}
+
+            // todo trigger_reading is unused prop
+          />
         </div>
       </div>
     );

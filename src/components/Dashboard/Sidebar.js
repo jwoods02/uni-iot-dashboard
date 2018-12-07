@@ -1,71 +1,83 @@
 import React, { Component } from "react";
 import "../../App.css";
 import Image from "../../assets/dww.jpg";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
 
 class Sidebar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dropdownOpen: false
+    };
+
+    this.handleViewDropdown = this.handleViewDropdown.bind(this);
+  }
+  handleViewDropdown() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  }
+
   render() {
     return (
       <div>
         <ul className="sidebar navbar-nav">
           <Link to="/dashboard">
             <li className="nav-item active">
-              <a className="nav-link" href="index.html">
+              <div className="nav-link">
                 <i className="fas fa-fw fa-tachometer-alt" />
-                <span> Dashboard</span>
-              </a>
+                <span> &nbsp; Arduino Dashboard</span>
+              </div>
             </li>
           </Link>
 
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              id="pagesDropdown"
-              role="button"
+          <li className="nav-item">
+            <div className="nav-link">
+              <i className="fas fa-fw fa-plus" />
+              <span> &nbsp; New Sensor</span>
+            </div>
+          </li>
+
+          <li className="nav-item">
+            <div
+              className="nav-link"
+              // role="button"
+              aria-hidden="true"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <i className="fas fa-fw fa-folder" />
-              <span>Pages</span>
-            </a>
-            <div className="dropdown-menu" aria-labelledby="pagesDropdown">
-              <h6 className="dropdown-header">Login Screens:</h6>
-              <a className="dropdown-item" href="login.html">
-                Login
-              </a>
-              <a className="dropdown-item" href="register.html">
-                Register
-              </a>
-              <a className="dropdown-item" href="forgot-password.html">
-                Forgot Password
-              </a>
-              <div className="dropdown-divider" />
-              <h6 className="dropdown-header">Other Pages:</h6>
-              <a className="dropdown-item" href="404.html">
-                404 Page
-              </a>
-              <a className="dropdown-item" href="blank.html">
-                Blank Page
-              </a>
+              <i className="fas fa-fw fa-folder" aria-hidden="true" />
+              <i
+                className="pull-right"
+                onClick={() => {
+                  this.handleViewDropdown();
+                }}
+              >
+                <i className="fas fa-chevron-down mt-2" />
+              </i>
+              <span>&nbsp; Documentation</span>
             </div>
+            <Dropdown isOpen={this.state.dropdownOpen} />
           </li>
+
           <li className="nav-item">
-            <a className="nav-link" href="charts.html">
+            <div className="nav-link">
               <i className="fas fa-fw fa-chart-area" />
-              <span>Charts</span>
-            </a>
+              <span>&nbsp; Charts</span>
+            </div>
           </li>
 
           <Link to="/dashboard/tables">
             <li className="nav-item">
-              <a className="nav-link" href="tables.html">
+              <div className="nav-link">
                 <i className="fas fa-fw fa-table" />
-                <span>Tables</span>
-              </a>
+                <span>&nbsp; Tables</span>
+              </div>
             </li>
           </Link>
+
           <div className="image">
             <img src={Image} alt="data works wales img not found" />
           </div>

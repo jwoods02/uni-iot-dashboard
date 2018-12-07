@@ -1,50 +1,47 @@
 import React from "react";
 import Plot from "react-plotly.js";
-import graphData from "../../utils/graphQueries";
+import getGraphDataBySensorName from "../../utils/graphQueries/getGraphDataBySensorName";
 
 class Graph extends React.Component {
   constructor(props) {
     super(props);
     this.state = { data: [], layout: {}, frames: [], config: {} };
+    if (this.props.sensorName) {
+      this.setGraphData();
+    }
   }
 
-  componentWillMount() {
-    this.setGraphData();
+  componentWillReceiveProps() {
+    if (this.props.sensorName) {
+      this.setGraphData();
+    }
   }
-
   setGraphData() {
-    // const theGraphData = graphData();
-
-    // console.log(theGraphData);
-
-    graphData().then(theGraphData => {
+    getGraphDataBySensorName(this.props.sensorName).then(theGraphData => {
       this.setState({
         data: [
           {
-            // todo this data will need to be set
-            x: theGraphData[0], // todo query for time
-            y: theGraphData[1], // todo query for sensor data
+            x: theGraphData[0],
+            y: theGraphData[1],
             type: "line",
-            mode: "lines+points",
-            marker: { color: "red" }
+            mode: "lines+markers",
+            line: { color: "green" },
+            fill: "tonexty"
           }
         ],
         // todo set graph title with props
         layout: {
-          width: 600,
-          height: 600,
-          title: "THIS WILL NEED TO BE SET WITH PROPS"
+          title: ""
         },
         frame: {},
         config: {}
       });
-      this.forceUpdate();
     });
   }
 
   render() {
     return (
-      <div className={"chart"}>
+      <div>
         <Plot
           data={this.state.data}
           layout={this.state.layout}

@@ -1,17 +1,19 @@
 import firebase from "firebase";
 
-export default function graphData() {
+// todo will need a query to change sensors.sensor.lastUpdate
+
+export default function getGraphDataBySensorName(sensorName) {
   let xAxis = [];
   let yAxis = [];
-
   const db = firebase.firestore();
   db.settings({ timestampsInSnapshots: true });
 
   return new Promise(function(resolve, reject) {
     db.collection("sensor")
+      .where("name", "==", sensorName)
       .get()
-      .then(snapshot => {
-        snapshot.docs.forEach(doc => {
+      .then(sensors => {
+        sensors.docs.forEach(doc => {
           doc.data().readings.forEach(reading => {
             xAxis.push(new Date(reading["date"]["seconds"] * 1000));
             yAxis.push(reading["value"]);
@@ -23,8 +25,4 @@ export default function graphData() {
         reject(error);
       });
   });
-
-  // todo will need a query to change sensors.sensor.lastUpdate
-  // todo check that you cant route to pages using the login
-  // https://www.youtube.com/watch?v=e8GA1UOj8mE&list=PL0vfts4VzfNiPCzuRPXFZS1Hnw_RvVEXR&index=9
 }
