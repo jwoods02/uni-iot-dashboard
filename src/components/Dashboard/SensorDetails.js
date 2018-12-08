@@ -29,10 +29,8 @@ export default class SensorDetails extends Component {
   render() {
     if (this.state.data.readings) {
         // if (this.state.data.length == 0)
-        console.log("readings", this.state.data.length);
         var sensortables = [];
         let readings = this.state.data.readings.map(value => value);
-        console.log("timestamp", readings);
         for (var i = 0; i < readings.length; i++) {
             sensortables.push(
                 <SensorTable 
