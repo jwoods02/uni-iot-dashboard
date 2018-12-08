@@ -38,16 +38,13 @@ class SensorView extends Component {
   }
 
   sendSensorData(e) {
-    const router = this.props;
     e.preventDefault();
+    // promise to set state after successful function
+    // https://stackoverflow.com/questions/39191001/setstate-with-firebase-promise-in-react/39191027
     postNewSensor(this.state.sensorName, this.state.sensorType)
       .then((success) => {
         this.setState({success: true});
       });
-      //   console.log("successful")
-      //   this.setState({success: true});
-      //   console.log(this.state.success)
-      // });
   }
 
   render() {
