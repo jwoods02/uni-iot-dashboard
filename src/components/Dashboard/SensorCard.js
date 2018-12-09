@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { Link, BrowserRouter } from "react-router-dom";
+import { Link, Router, BrowserRouter } from "react-router-dom";
 import SensorTherm from "../../assets/dht-11.png";
 import SensorLight from "../../assets/tsl2561.png";
-import '../../App.css';
+import "../../App.css";
 
 class SensorCard extends Component {
-
   render() {
     let card;
     if (this.props.sensorType === "LIGHT") {
@@ -43,15 +42,16 @@ class SensorCard extends Component {
     return (
       <div className="col mb-4 ml-2 mt-3">
         <div className="card card-shadow text-white bg-dark o-hidden h-100">
-          <BrowserRouter>
+          <div className="text-white clearfix small z-1">
             <Link
-              to="/dashboard/sensors"
-              className=" text-white clearfix small z-1"
-              style={{ textDecoration: 'none' }}
+              to={"/dashboard/sensor/" + this.props.sensorName}
+              state={{ id: this.props.sensorName }}
+              className="text-white"
+              style={{ textDecoration: "none" }}
             >
               {card}
             </Link>
-          </BrowserRouter>
+          </div>
         </div>
       </div>
     );
