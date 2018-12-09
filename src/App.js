@@ -10,7 +10,8 @@ import firebase from "firebase";
 import Notifications from "./container/Dashboard/Notifications";
 import SensorView from "./container/Dashboard/SensorView";
 import Tables from "./container/Dashboard/Tables";
-import SensorDetails from './container/Dashboard/SensorDetails';
+import SensorDetails from "./container/Dashboard/SensorDetails";
+import SignUp from "./container/Login/SignUp";
 
 function AuthenticatedRoute({ component: Component, authenticated, ...rest }) {
   return (
@@ -40,18 +41,20 @@ class App extends Component {
     };
   }
 
-  setCurrentUser(user) {
-    if (user) {
-      this.setState({
-        currentUser: user,
-        authenticated: true
-      });
-    } else {
-      this.setState({
-        currentUser: null,
-        authenticated: false
-      });
-    }
+  setCurrentUser() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        this.setState({
+          currentUser: user,
+          authenticated: true
+        });
+      } else {
+        this.setState({
+          currentUser: null,
+          authenticated: false
+        });
+      }
+    });
   }
 
   componentWillMount() {
@@ -59,14 +62,19 @@ class App extends Component {
       if (user) {
         this.setState({
           authenticated: true,
-          currentUser: user,
-          loading: false
+          currentUser: user
+        });
+
+        user.providerData.forEach(function(profile) {
+          console.log("Sign-in provider: " + profile.providerId);
+          console.log("  Provider-specific UID: " + profile.uid);
+          console.log("  Dispay Name: " + profile.displayName);
+          console.log("  Email: " + profile.email);
         });
       } else {
         this.setState({
           authenticated: false,
-          currentUser: null,
-          loading: false
+          currentUser: null
         });
       }
     });
@@ -99,9 +107,13 @@ class App extends Component {
               component={Notifications}
             />
 
-            <Route exact path="/dashboard/sensor/:id" component={SensorDetails} />
+            <Route
+              exact
+              path="/dashboard/sensor/:id"
+              component={SensorDetails}
+            />
             <Route exact path="/dashboard/sensors" component={SensorView} />
-            
+            <Route exact path="/register" component={SignUp} />
             {/* <AuthenticatedRoute
               requireAuth={true}
               authenticated={this.state.authenticated}
