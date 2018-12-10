@@ -1,20 +1,23 @@
 import React, { Component } from "react";
-import { getEntriesByType } from "../../utils/documentation/getDocuments";
+import { getSectionByUrl } from "../../utils/documentation/getDocuments";
 import SectionList from "../../components/Documentation/SectionList";
 
-export default class DocumentationHome extends Component {
+export default class DocumentationSection extends Component {
   constructor(props) {
     super(props);
 
+    const currentUrl = this.href.substr(this.href.lastIndexOf("/") + 1);
+
     this.state = {
-      sections: ""
+      sections: "",
+      url: currentUrl
     };
 
     this.getEntries();
   }
 
   getEntries() {
-    getEntriesByType("section").then(sections => {
+    getSectionByUrl(this.state.url).then(sections => {
       console.log(sections);
       this.setState({
         sections: sections

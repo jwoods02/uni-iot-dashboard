@@ -2,11 +2,17 @@ import React, { Component } from "react";
 
 function ArticleList(props) {
   const articles = JSON.parse(props.articles);
-  const listItems = articles.map(article => <li>{article.fields.title}</li>);
+  const listItems = articles.map(article => {
+    return (
+      <a href={"article/" + article.fields.url}>
+        <li>{article.fields.title}</li>
+      </a>
+    );
+  });
   return <ul>{listItems}</ul>;
 }
 
-export default class Section extends Component {
+export default class SectionList extends Component {
   render() {
     return (
       <div>

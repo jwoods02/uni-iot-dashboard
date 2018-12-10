@@ -32,4 +32,19 @@ async function getEntriesByType(type) {
   return allEntries;
 }
 
-export { getAllDocuments, getEntriesByType };
+async function getSectionByUrl(url) {
+  let allEntries = [];
+  const entries = await client.getEntries({
+    content_type: "section",
+    url: url
+  });
+  entries.items.forEach(entry => {
+    if (entry.fields) {
+      allEntries.push(entry);
+    }
+  });
+
+  return allEntries;
+}
+
+export { getAllDocuments, getEntriesByType, getSectionByUrl };
