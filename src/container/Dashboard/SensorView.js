@@ -44,7 +44,12 @@ class SensorView extends Component {
     postNewSensor(this.state.sensorName, this.state.sensorType)
       .then((success) => {
         this.setState({success: true});
+        this.reload();
       });
+  }
+
+  reload(){
+    setInterval(window.location.reload(), 5000);
   }
 
   render() {
