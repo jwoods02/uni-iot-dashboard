@@ -1,16 +1,5 @@
 const functions = require('firebase-functions');
-
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-//  console.log(response);
-// });
-
 const nodemailer = require('nodemailer');
-// const admin = require('firebase-admin');
-// admin.initializeApp();
 
 const mailTransport = nodemailer.createTransport({
     service: 'gmail',
@@ -21,13 +10,15 @@ const mailTransport = nodemailer.createTransport({
 });
 
 // Sends an email confirmation when a user changes his mailing list subscription.
-exports.sendNotification = functions.auth.user().onCreate((user) => {
+exports.sendNotification = functions.firestore
+    .document('sensor/{sensorId}/readings')
+    .onUpdate((user) =>
 
 
     const mailOptions = {
-        from: '"Spammy Corp." <noreply@firebase.com>',
-        to:"guy.rawsthorn@btopenworld.com",
-        text: "TEST"
+        from: '"ddw" <noreply@firebase.com>',
+        to: "kabira.suleman@gmail",
+        text: "Hello " + name + ", \r\m  You are receiving notification email because SENSOR_NAME is NOTIFICATION_TITLE. \r\m The notification message is as follows \r\m NOTIFICATION_MESSAGE."
     };
 
     return mailTransport.sendMail(mailOptions)
