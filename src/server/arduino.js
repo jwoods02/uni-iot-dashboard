@@ -1,10 +1,14 @@
 const SerialPort = require("serialport");
-const path = "COM3";
+// Change the portNum to the appropriate port for your connection
+const portNum = "";
+// Set sensorRef equal to the document ID of the relevant sensor
+const sensorID = "";
+
 const admin = require("firebase-admin");
 const serviceAccount = require("../firebase.json");
 
 const Readline = SerialPort.parsers.Readline;
-const port = new SerialPort(path);
+const port = new SerialPort(portNum);
 const parser = new Readline();
 
 admin.initializeApp({
@@ -13,8 +17,7 @@ admin.initializeApp({
   databaseURL: "https://fir-test-6e084.firebaseio.com"
 });
 const db = admin.firestore();
-
-const sensorRef = db.collection("sensor").doc("ZxLDmJSE9gsMD8fwnZgw");
+const sensorRef = db.collection("sensor").doc(sensorID);
 
 // Atomically add
 // let arrUnion = sensorRef.update({
