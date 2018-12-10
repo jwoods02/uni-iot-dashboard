@@ -8,9 +8,9 @@ class TopNav extends Component {
     return (
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark static-top">
-          <a className="navbar-brand mr-1" href="index.html">
+          <div className="navbar-brand mr-1">
             Data Works Wales
-          </a>
+          </div>
 
           <button
             className="btn btn-link btn-sm text-white order-1 order-sm-0"
