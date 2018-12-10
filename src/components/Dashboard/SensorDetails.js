@@ -1,41 +1,58 @@
 import React, { Component } from "react";
 import getDataBySensorName from "../../utils/sensorCardQueries/getDataBySensorName";
 import SensorTable from './SensorTableCom';
+import UpdateData from '../../utils/sensorCardQueries/UpdateData';
+import firebase from 'firebase';
 
 export default class SensorDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
+      id: "",
       indicator: ""
     };
   }
 
   componentWillMount() {
     let url = window.location.pathname;
-    var sensorName = url.substring(url.lastIndexOf("/") + 1, url.length);
-    this.getData(sensorName);
-  }
+    let sensorName = url.substring(url.lastIndexOf("/") + 1, url.length);
+    // this.getData(sensorName);
+    // no longer need this static ref ^
+    let ref = firebase.firestore().collection('sensor').where('name', '==', sensorName);
+    ref.onSnapshot((querySnapshot)=> {
+        querySnapshot.docChanges().forEach((change) => {
+            if (change.empty) {
+                console.log('No matching documents or Empty.');
+                return;
+              }
+        this.setState({
+          data: change.doc.data(),
+          id: change.doc.id
+        })
+        })
+        
+  })
+}
 
-  getData(sensorName) {
-    getDataBySensorName(sensorName).then(result => {
-      this.setState({
-        data: result
-      });
-    });
-    // console.log("date object ____", this.state.data.last_updated.toString());
-  }
+  // getData(sensorName) {
+  //   getDataBySensorName(sensorName).then(result => {
+  //     this.setState({
+  //       data: result
+  //     });
+  //   });
+
 
   render() {
     if (this.state.data.readings) {
-        // if (this.state.data.length == 0)
-        var sensortables = [];
+      var sensortables = [];
         let readings = this.state.data.readings.map(value => value);
         for (var i = 0; i < readings.length; i++) {
+          
             sensortables.push(
                 <SensorTable 
                 key={i}
-                id = {this.state.data.id}
+                id = {this.state.id}
                 type={this.state.data.type}
                 value={readings[i].value}
                 date={new Date(readings[i].date).toString()}
@@ -45,20 +62,7 @@ export default class SensorDetails extends Component {
     }
     
 }
- else {
-     // this needs some work
-     let sensortables = [];
-     sensortables.push(
-        <SensorTable 
-        key={i}
-        id = "no data"
-        type="no data"
-        value="no data"
-        date="no data"
-        indicator=""
-        />
-     )
- }
+
     return (
       <div>
           <br />
@@ -71,7 +75,7 @@ export default class SensorDetails extends Component {
         </div>
         </div>
           <li className="list-group-item">Sensor name : {this.state.data.name}</li>
-          <li className="list-group-item">Sensor identification : {this.state.data.id}</li>
+          <li className="list-group-item">Sensor identification : {this.state.id}</li>
           <li className="list-group-item"> Sensor last updated :{" "}
             {new Date(this.state.data.last_updated).toString()}
           </li> 
