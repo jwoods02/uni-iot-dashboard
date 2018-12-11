@@ -1,27 +1,37 @@
 import firebase from "firebase";
 
 export default function postNewNotification(
-  device,
-  deviceType,
+  contactDetail,
+  contactType,
+  title,
   message,
-  name,
-  sensor,
-  triggerCon,
-  triggerRead
+  triggerCheck,
+  triggerValue,
+  sensorID
 ) {
   const db = firebase.firestore();
   return new Promise(function(resolve, reject, e) {
+    console.log(sensorID);
     db.collection("notification")
-      .doc()
-      .set({
-        device: device,
-        device_type: deviceType,
+      .add({
+        contact_detail: contactDetail,
+        contact_type: contactType,
         message: message,
-        name: name,
-        sensor: sensor,
-        trigger_condition: triggerCon,
-        trigger_reading: triggerRead,
-        trigger_time: new Date()
+        name: title,
+        trigger_condition: triggerCheck.toString() + triggerValue.toString()
+      })
+      .then(docRef => {
+        console.log("logging - " + docRef.id);
+        db.collection("sensor")
+          .doc(sensorID)
+          .update({
+            // Syntax for adding to array field retrieved from docs:
+            // https://firebase.google.com/docs/firestore/manage-data/add-data#update_elements_in_an_array
+            // [Accessed: 11 December 2018]
+            notification_conditions: firebase.firestore.FieldValue.arrayUnion(
+              db.doc("notification/" + docRef.id)
+            )
+          });
       })
       .then(function() {
         let onSuccess = true;
