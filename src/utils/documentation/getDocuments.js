@@ -36,7 +36,7 @@ async function getSectionByUrl(url) {
   let allEntries = [];
   const entries = await client.getEntries({
     content_type: "section",
-    url: url
+    "fields.url": url
   });
   entries.items.forEach(entry => {
     if (entry.fields) {
@@ -47,4 +47,19 @@ async function getSectionByUrl(url) {
   return allEntries;
 }
 
-export { getAllDocuments, getEntriesByType, getSectionByUrl };
+async function getArticleByUrl(url) {
+  let allEntries = [];
+  const entries = await client.getEntries({
+    content_type: "documentationPage",
+    "fields.url": url
+  });
+  entries.items.forEach(entry => {
+    if (entry.fields) {
+      allEntries.push(entry);
+    }
+  });
+
+  return allEntries;
+}
+
+export { getAllDocuments, getEntriesByType, getSectionByUrl, getArticleByUrl };

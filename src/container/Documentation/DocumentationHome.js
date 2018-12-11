@@ -1,44 +1,52 @@
 import React, { Component } from "react";
-import { getEntriesByType } from "../../utils/documentation/getDocuments";
-import SectionList from "../../components/Documentation/SectionList";
+import Sidebar from "../../components/Dashboard/Sidebar";
+import NavTop from "../../components/Dashboard/TopNav";
+import SensorDetails from "../../components/Dashboard/SensorDetails";
+import HomeWrapper from "../../components/Documentation/HomeWrapper";
 
 export default class DocumentationHome extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      sections: ""
+      sidebarOpen: true
     };
-
-    this.getEntries();
+    this.handleViewSidebar = this.handleViewSidebar.bind(this);
   }
 
-  getEntries() {
-    getEntriesByType("section").then(sections => {
-      console.log(sections);
-      this.setState({
-        sections: sections
-      });
+  handleViewSidebar() {
+    this.setState({
+      sidebarOpen: !this.state.sidebarOpen
     });
   }
 
-  renderEntries() {
-    let allPages = [];
-    if (this.state.sections) {
-      this.state.sections.forEach(element => {
-        allPages.push(
-          <SectionList
-            title={element.fields.sectionTitle}
-            articles={JSON.stringify(element.fields.articles)}
-          />
-        );
-      });
-    }
-
-    return allPages;
-  }
-
   render() {
-    return this.renderEntries();
+    if (this.state.sidebarOpen === true)
+      return (
+        <div>
+          <NavTop onClick={this.handleViewSidebar} />
+
+          <div id="wrapper">
+            <Sidebar isOpen={this.state.sidebarOpen} />
+            <div>
+              <div className="container documentation-container">
+                <HomeWrapper />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    else
+      return (
+        <div>
+          <NavTop onClick={this.handleViewSidebar} />
+
+          <div id="wrapper">
+            <div className="container documentation-container">
+              <HomeWrapper />
+            </div>
+          </div>
+        </div>
+      );
   }
 }

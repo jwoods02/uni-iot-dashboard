@@ -7,7 +7,7 @@ function ArticleList(props) {
     return (
       <Link
         to={"/documentation/article/" + article.fields.url}
-        state={{ url: article.fields.url }}
+        state={{ url: article.fields }}
         style={{ textDecoration: "none" }}
       >
         <li>{article.fields.title}</li>
@@ -17,17 +17,11 @@ function ArticleList(props) {
   return <ul>{listItems}</ul>;
 }
 
-export default class SectionList extends Component {
+export default class Section extends Component {
   render() {
     return (
       <div>
-        <Link
-          to={"/documentation/section/" + this.props.url}
-          state={{ url: this.props.url }}
-          style={{ textDecoration: "none" }}
-        >
-          <h2>{this.props.title}</h2>
-        </Link>
+        <h2>{this.props.title}</h2>
         <ArticleList articles={this.props.articles} />
       </div>
     );

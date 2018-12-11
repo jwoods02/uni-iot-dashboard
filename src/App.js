@@ -13,6 +13,8 @@ import Tables from "./container/Dashboard/Tables";
 import DocumentationHome from "./container/Documentation/DocumentationHome";
 import SensorDetails from "./container/Dashboard/SensorDetails";
 import SignUp from "./container/Login/SignUp";
+import DocumentationSection from "./container/Documentation/DocumentationSection";
+import DocumentationArticle from "./container/Documentation/DocumentationArticle";
 
 function AuthenticatedRoute({ component: Component, authenticated, ...rest }) {
   return (
@@ -115,6 +117,16 @@ class App extends Component {
             />
             <Route exact path="/dashboard/sensors" component={SensorView} />
             <Route exact path="/documentation" component={DocumentationHome} />
+            <Route
+              exact
+              path="/documentation/section/:id"
+              component={DocumentationSection}
+            />
+            <Route
+              exact
+              path="/documentation/article/:id"
+              component={DocumentationArticle}
+            />
             <Route exact path="/register" component={SignUp} />
             {/* <AuthenticatedRoute
               requireAuth={true}
