@@ -28,10 +28,8 @@ export default class DocumentationHome extends Component {
 
           <div id="wrapper">
             <Sidebar isOpen={this.state.sidebarOpen} />
-            <div>
-              <div className="container documentation-container">
-                <HomeWrapper />
-              </div>
+            <div className="container documentation-container">
+              <HomeWrapper />
             </div>
           </div>
         </div>

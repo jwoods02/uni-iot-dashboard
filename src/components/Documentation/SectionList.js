@@ -10,11 +10,11 @@ function ArticleList(props) {
         state={{ url: article.fields.url }}
         style={{ textDecoration: "none" }}
       >
-        <li>{article.fields.title}</li>
+        <li className="list-group-item">{article.fields.title}</li>
       </Link>
     );
   });
-  return <ul>{listItems}</ul>;
+  return <ul className="list-group">{listItems}</ul>;
 }
 
 export default class SectionList extends Component {
