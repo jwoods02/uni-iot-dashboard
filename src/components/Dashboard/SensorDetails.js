@@ -19,6 +19,9 @@ export default class SensorDetails extends Component {
     let sensorName = url.substring(url.lastIndexOf("/") + 1, url.length);
     // this.getData(sensorName);
     // no longer need this static ref ^
+    // how to get real time updates with react
+    // https://www.youtube.com/watch?v=_GOI7h9ojr8
+    // Accessed [10.12.2018]
     let ref = firebase.firestore().collection('sensor').where('name', '==', sensorName);
     ref.onSnapshot((querySnapshot)=> {
         querySnapshot.docChanges().forEach((change) => {
