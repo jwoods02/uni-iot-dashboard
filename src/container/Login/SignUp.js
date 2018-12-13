@@ -25,6 +25,11 @@ class Login extends Component {
             .createUserWithEmailAndPassword(this.state.email, this.state.password)
             .then(function () {
                 let user = firebase.auth().currentUser;
+                user.sendEmailVerification().then(function() {
+                    alert("You have been sent an email verification")
+                }).catch(function(error) {
+                    console.log(error)
+                });
                 user.updateProfile({
                     displayName: displayName,
                 })
@@ -57,7 +62,7 @@ class Login extends Component {
 
     render() {
         const { from } = this.props.location.state || {
-            from: { pathname: "/dashboard" }
+            from: { pathname: "/login" }
         };
 
         if (this.state.redirect === true) {
