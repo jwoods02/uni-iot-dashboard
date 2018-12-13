@@ -18,7 +18,8 @@ export default function postNewNotification(
         contact_type: contactType,
         message: message,
         name: title,
-        trigger_condition: triggerCheck.toString() + triggerValue.toString()
+        trigger_condition:
+          triggerCheck.toString() + " " + triggerValue.toString()
       })
       .then(docRef => {
         console.log("logging - " + docRef.id);
