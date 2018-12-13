@@ -61,3 +61,21 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+### `npm i`
+
+In order to install any 3rd party project dependencies which are defined within our package.json file.
+npm i from TEAMP9IOT/ dir
+
+###  links to any third-party libraries used
+
+React JS - https://reactjs.org/ - our front end framework , built with the 'create-react-app' command to quickly create our web app.
+
+firebase - https://firebase.google.com/ - our 'BaaS' (backend as a service) framework we are utilising mainly for authentication and real time data flow.
+
+firestore - https://firebase.google.com/products/firestore/ - Our NoSQL google cloud database. 
+
+###  Discussion of the architechture.
+
+utilising googles firebase results in a serverless application, 

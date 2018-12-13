@@ -32,10 +32,10 @@ class GraphDashboard extends Component {
             </div>
 
             <div className="col mb-3">
-              <div className="card text-white bg-danger o-hidden h-100">
+              <div className="card text-white bg-primary o-hidden h-100">
                 <div className="card-body">
                   <div className="card-body-icon">
-                    <i className="fas fa-fw fa-life-ring" />
+                    <i className="fas fa-fw fa-hdd" />
                   </div>
                   <div className="mr-5">View All Sensors</div>
                 </div>

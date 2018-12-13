@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import firebase from "firebase";
-import * as ROUTES from "../../constants/routes";
 import { Redirect } from "react-router";
-
-// Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:
-const passwordRegex =
-  "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,}$";
 
 class Login extends Component {
   constructor(props) {
@@ -66,7 +61,6 @@ class Login extends Component {
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log("changing page");
         this.setState({ redirect: true });
       }
     });
@@ -133,8 +127,8 @@ class Login extends Component {
             <div className="form-group">
               <div className="checkbox" />
             </div>
-            {/* <div className=""> */}
-            {/* <Link to="/dashboard"> */}
+
+            {/************  todo fix duplicate props "className" in same tag*/}
             <input
               className="btn btn-primary btn-block "
               type="submit"
@@ -142,18 +136,14 @@ class Login extends Component {
               value="Login"
               id="submit"
             />
-            {/* </Link> */}
-            {/* </div> */}
-
-            {/* <a className="btn btn-primary btn-block" type="submit" value="Login" id="submit">Login</a> */}
           </form>
           <div className="text-center">
-            <a className="d-block small mt-3" href="register.html">
+            <Link className="d-block small mt-3" to="/register">
               Register an Account
-            </a>
-            <p onClick={this.sendPasswordReset} className="d-block small text-primary">
+            </Link>
+            <a onClick={this.sendPasswordReset} className="d-block small text-primary">
               Forgot Password
-            </p>
+            </a>
           </div>
         </div>
       </div>
