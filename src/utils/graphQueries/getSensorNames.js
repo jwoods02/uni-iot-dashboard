@@ -6,7 +6,7 @@ export default function getSensorNames() {
     const db = firebase.firestore();
     db.settings({ timestampsInSnapshots: true });
 
-    return new Promise(function(resolve, reject) {
+    return new Promise(function(resolve, reject,e) {
         db.collection("sensor")
             .orderBy("last_updated", "desc").limit(4)
             .get()

@@ -22,7 +22,7 @@ export default class SensorInfoCardContainer extends Component {
   renderSensors() {
     let sensorList = [];
     this.state.sensorNames.forEach((sensorName, index) => {
-      sensorList.push(<SensorInfoCard sensor={sensorName} />);
+      sensorList.push(<SensorInfoCard key={index} sensor={sensorName} />);
     });
 
     return sensorList;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import firebase from "firebase";
-import { Redirect } from "react-router";
+import {Redirect} from "react-router";
+import {Link} from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -26,33 +26,34 @@ class Login extends Component {
   }
 
   handleSubmit(event) {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(function(user) {
-        console.log(user);
-        console.log("successful login");
+      firebase
+          .auth()
+          .signInWithEmailAndPassword(this.state.email, this.state.password)
+          .then(function (user) {
+              console.log(user);
+              console.log("successful login");
 
-        // james please pick this up
-        localStorage.setItem("user", user);
-      })
-      .catch(function(error) {
-        console.log("unsuccessful login");
-        alert(error);
+              // james please pick this up
+              localStorage.setItem("user", user);
+          })
+          .catch(function (error) {
+              console.log("unsuccessful login");
+              alert(error);
+          });
+      event.preventDefault();
+
+      this.setState({
+          password: ""
       });
-    event.preventDefault();
 
-    this.setState({
-      password: ""
-    });
-
-    firebase.auth().onAuthStateChanged(user => {
-      if (user && user.emailVerified) {
-        this.setState({ redirect: true });
-      } if (user && !(user.emailVerified)) {
-        alert("This is not a verified user")
-      }
-    });
+      firebase.auth().onAuthStateChanged(user => {
+          if (user && user.emailVerified) {
+              this.setState({redirect: true});
+          }
+          if (user && !(user.emailVerified)) {
+              alert("This is not a verified user")
+          }
+      });
   }
 
   handleInputChanged(event) {
@@ -124,14 +125,12 @@ class Login extends Component {
               value="Login"
               id="submit"
             />
-
           </form>
           <div className="text-center">
-              <Link className="d-block small mt-3"
-                  to="/register">
-                  Register an Account
-              </Link>
-            <a className="d-block small" href="forgot-password.html">
+            <Link className="d-block small mt-3" to="/register">
+              Register an Account
+            </Link>
+            <a className="d-block small text-primary" >
               Forgot Password?
             </a>
           </div>
