@@ -37,34 +37,6 @@ class Login extends Component {
       });
   }
 
-  handleSubmit(event) {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(function(user) {
-        console.log(user);
-        console.log("successful login");
-
-        // james please pick this up
-        localStorage.setItem("user", user);
-      })
-      .catch(function(error) {
-        console.log("unsuccessful login");
-        alert(error);
-      });
-    event.preventDefault();
-
-    this.setState({
-      password: ""
-    });
-
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        this.setState({ redirect: true });
-      }
-    });
-  }
-
   handleInputChanged(event) {
     const target = event.target;
     const value = target.value;
@@ -75,79 +47,120 @@ class Login extends Component {
     });
   }
 
-  render() {
-    const { from } = this.props.location.state || {
-      from: { pathname: "/dashboard" }
-    };
+    handleSubmit(event) {
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(this.state.email, this.state.password)
+            .then(function(user) {
+                console.log(user);
+                console.log("successful login");
 
-    if (this.state.redirect === true) {
-      return <Redirect to={from} />;
+                // james please pick this up
+                localStorage.setItem("user", user);
+            })
+            .catch(function(error) {
+                console.log("unsuccessful login");
+                alert(error);
+            });
+        event.preventDefault();
+
+        this.setState({
+            password: ""
+        });
+
+        firebase.auth().onAuthStateChanged(user => {
+            if (user && user.emailVerified) {
+                this.setState({ redirect: true });
+            } if (user && !(user.emailVerified)) {
+                alert("This is not a verified user")
+            }
+        });
     }
 
-    const formGroupStyle = {
-      marginBottom: "3rem"
-    };
+    handleInputChanged(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
 
-    return (
-      <div id="homeWrapper">
-        <div className="container">
-          <form onSubmit={this.handleSubmit} class="text-white">
-            {/* Email Section*/}
-            <div className="form-group" style={formGroupStyle}>
-              <div className="form-label-group">
-                <input
-                  type="email"
-                  name="email"
-                  id="inputEmail"
-                  value={this.state.email}
-                  onChange={this.handleInputChanged}
-                  className="form-control text-center"
-                  placeholder="Email address"
-                  required="required"
-                  autoFocus="autoFocus"
-                />
-              </div>
-            </div>
-            {/* Password Section */}
-            <div className="form-group" style={formGroupStyle}>
-              <div className="form-label-group">
-                <input
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleInputChanged}
-                  id="inputPassword"
-                  className="form-control text-center"
-                  placeholder="Password"
-                  required="required"
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="checkbox" />
-            </div>
+        this.setState({
+            [name]: value
+        });
+    }
+    render() {
+        const { from } = this.props.location.state || {
+            from: { pathname: "/dashboard" }
+        };
 
-            {/************  todo fix duplicate props "className" in same tag*/}
-            <input
-              className="btn btn-primary btn-block "
-              type="submit"
-              className="btn btn-primary round"
-              value="Login"
-              id="submit"
-            />
-          </form>
-          <div className="text-center">
-            <Link className="d-block small mt-3" to="/register">
-              Register an Account
-            </Link>
-            <a onClick={this.sendPasswordReset} className="d-block small text-primary">
-              Forgot Password
-            </a>
-          </div>
-        </div>
-      </div>
-    );
-  }
+        if (this.state.redirect === true) {
+            return <Redirect to={from} />;
+        }
+
+        const formGroupStyle = {
+            marginBottom: "3rem"
+        };
+
+        return (
+            <div id="homeWrapper">
+                <div className="container">
+                    <form onSubmit={this.handleSubmit} class="text-white">
+                        {/* Email Section*/}
+                        <div className="form-group" style={formGroupStyle}>
+                            <div className="form-label-group">
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="inputEmail"
+                                    value={this.state.email}
+                                    onChange={this.handleInputChanged}
+                                    className="form-control text-center"
+                                    placeholder="Email address"
+                                    required="required"
+                                    autoFocus="autoFocus"
+                                />
+                            </div>
+                        </div>
+                        {/* Password Section */}
+                        <div className="form-group" style={formGroupStyle}>
+                            <div className="form-label-group">
+                                <input
+                                    type="password"
+                                    name="password"
+                                    value={this.state.password}
+                                    onChange={this.handleInputChanged}
+                                    id="inputPassword"
+                                    className="form-control text-center"
+                                    placeholder="Password"
+                                    required="required"
+                                />
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <div className="checkbox" />
+                        </div>
+
+                        {/************  todo fix duplicate props "className" in same tag*/}
+                        <input
+                            className="btn btn-primary btn-block "
+                            type="submit"
+                            className="btn btn-primary round"
+                            value="Login"
+                            id="submit"
+                        />
+
+                    </form>
+                    <div className="text-center">
+                        <Link className="d-block small mt-3"
+                              to="/register">
+                            Register an Account
+                        </Link>
+                        <a className="d-block small text-primary" onClick={this.sendPasswordReset}>
+                            Forgot Password?
+                        </a>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default Login;
