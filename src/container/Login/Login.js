@@ -4,26 +4,48 @@ import firebase from "firebase";
 import { Redirect } from "react-router";
 
 class Login extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            redirect: false,
-            email: "",
-            password: "",
-            error: ""
-        };
+    this.state = {
+      redirect: false,
+      email: "",
+      password: "",
+      error: ""
+    };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInputChanged = this.handleInputChanged.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChanged = this.handleInputChanged.bind(this);
+    this.sendPasswordReset = this.sendPasswordReset.bind(this);
 
-        firebase
-            .auth()
-            .signOut()
-            .catch(function(error) {
-                console.log(error);
-            });
-    }
+    firebase
+      .auth()
+      .signOut()
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
+
+  sendPasswordReset(){
+      let auth = firebase.auth();
+      let emailAddress = this.state.email;
+
+      auth.sendPasswordResetEmail(emailAddress).then(function() {
+          alert("password reset has been sent to " + emailAddress);
+      }).catch(function(error) {
+          alert(error);
+      });
+  }
+
+  handleInputChanged(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
 
     handleSubmit(event) {
         firebase
@@ -131,7 +153,7 @@ class Login extends Component {
                               to="/register">
                             Register an Account
                         </Link>
-                        <a className="d-block small" href="forgot-password.html">
+                        <a className="d-block small text-primary" onClick={this.sendPasswordReset}>
                             Forgot Password?
                         </a>
                     </div>
