@@ -3,7 +3,7 @@ import SignUpForm from "../../components/AuthenticationComponents/SignUpForm";
 import firebase from "firebase";
 import { Redirect } from "react-router";
 
-class Login extends Component {
+class SignUp extends Component {
     constructor(props) {
         super(props);
 
@@ -25,6 +25,11 @@ class Login extends Component {
             .createUserWithEmailAndPassword(this.state.email, this.state.password)
             .then(function () {
                 let user = firebase.auth().currentUser;
+                user.sendEmailVerification().then(function() {
+                    alert("You have been sent an email verification")
+                }).catch(function(error) {
+                    console.log(error)
+                });
                 user.updateProfile({
                     displayName: displayName,
                 })
@@ -57,19 +62,19 @@ class Login extends Component {
 
     render() {
         const { from } = this.props.location.state || {
-            from: { pathname: "/dashboard" }
+            from: { pathname: "/login" }
         };
 
         if (this.state.redirect === true) {
             return <Redirect to={from} />;
         }
         return (
-           <SignUpForm
-           onSubmitForm={this.handleSubmit}
-           handleInputChanged={this.handleInputChanged}
-           />
+            <SignUpForm
+                onSubmitForm={this.handleSubmit}
+                handleInputChanged={this.handleInputChanged}
+            />
         );
     }
 }
 
-export default Login;
+export default SignUp;
