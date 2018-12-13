@@ -47,9 +47,10 @@ class Login extends Component {
     });
 
     firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-
+      if (user && user.emailVerified) {
         this.setState({ redirect: true });
+      } if (user && !(user.emailVerified)) {
+        alert("This is not a verified user")
       }
     });
   }
