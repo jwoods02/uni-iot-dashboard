@@ -16,12 +16,24 @@ class Login extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChanged = this.handleInputChanged.bind(this);
+    this.sendPasswordReset = this.sendPasswordReset.bind(this);
 
     firebase
       .auth()
       .signOut()
       .catch(function(error) {
         console.log(error);
+      });
+  }
+
+  sendPasswordReset(){
+      let auth = firebase.auth();
+      let emailAddress = this.state.email;
+
+      auth.sendPasswordResetEmail(emailAddress).then(function() {
+          alert("password reset has been sent to " + emailAddress);
+      }).catch(function(error) {
+          alert(error);
       });
   }
 
@@ -62,6 +74,7 @@ class Login extends Component {
       [name]: value
     });
   }
+
   render() {
     const { from } = this.props.location.state || {
       from: { pathname: "/dashboard" }
@@ -127,8 +140,8 @@ class Login extends Component {
             <Link className="d-block small mt-3" to="/register">
               Register an Account
             </Link>
-            <a className="d-block small" href="forgot-password.html">
-              Forgot Password?
+            <a onClick={this.sendPasswordReset} className="d-block small text-primary">
+              Forgot Password
             </a>
           </div>
         </div>
