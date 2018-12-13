@@ -175,7 +175,7 @@ class SensorView extends Component {
                             <option value="">Choose</option>
                             <option value="<">{"<"}</option>
                             <option value=">">{">"}</option>
-                            <option value="=">{"="}</option>
+                            <option value="==">{"=="}</option>
                             <option value="!=">{"!="}</option>
                           </select>
                           <input
@@ -327,7 +327,7 @@ class SensorView extends Component {
                             <option value="">Choose</option>
                             <option value="<">{"<"}</option>
                             <option value=">">{">"}</option>
-                            <option value="=">{"="}</option>
+                            <option value="==">{"=="}</option>
                             <option value="!=">{"!="}</option>
                           </select>
                           <input
