@@ -21,10 +21,10 @@
   color: white;
 }
 
-.icon-plus{
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+.icon-plus {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
 
 /*!
@@ -457,7 +457,7 @@ footer.sticky-footer {
   background-color: #e9ecef;
 }
 
-.orange-bg{
+.orange-bg {
   background-color: #f66003 !important;
 }
 
@@ -493,4 +493,13 @@ body.sidebar-toggled footer.sticky-footer {
   to {
     transform: rotate(360deg);
   }
+}
+
+.documentation-container h2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.documentation-container h1 {
+  margin-top: 1rem;
 }

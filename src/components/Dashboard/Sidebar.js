@@ -23,8 +23,7 @@ class Sidebar extends Component {
     return (
       <div>
         <ul className="sidebar navbar-nav">
-        
-          <Link to="/dashboard" style={{ textDecoration: 'none' }}>
+          <Link to="/dashboard" style={{ textDecoration: "none" }}>
             <li className="nav-item active">
               <div className="nav-link">
                 <i className="fas fa-fw fa-tachometer-alt" />
@@ -33,37 +32,16 @@ class Sidebar extends Component {
             </li>
           </Link>
 
-          <li className="nav-item">
-            <div
-              className="nav-link"
-              // role="button"
-              // aria-hidden="true"
-              // data-toggle="dropdown"
-              // aria-haspopup="true"
-              // aria-expanded="false"
-            >
-              <i className="fas fa-fw fa-folder"/>
-              <i
-                className="pull-right"
-                onClick={() => {
-                  this.handleViewDropdown();
-                }}
-              >
-                <i className="fas fa-chevron-down mt-2" />
-              </i>
-              <span>&nbsp; Documentation</span>
-            </div>
-            <Dropdown isOpen={this.state.dropdownOpen} />
-          </li>
+          <Link to="/documentation" style={{ textDecoration: "none" }}>
+            <li className="nav-item">
+              <div className="nav-link">
+                <i className="fas fa-fw fa-folder" />
+                <span>&nbsp; Documentation</span>
+              </div>
+            </li>
+          </Link>
 
-          <li className="nav-item">
-            <div className="nav-link">
-              <i className="fas fa-fw fa-chart-area" />
-              <span>&nbsp; Charts</span>
-            </div>
-          </li>
-
-          <Link to="/dashboard/tables" style={{ textDecoration: 'none' }}>
+          <Link to="/dashboard/tables" style={{ textDecoration: "none" }}>
             <li className="nav-item">
               <div className="nav-link">
                 <i className="fas fa-fw fa-table" />
