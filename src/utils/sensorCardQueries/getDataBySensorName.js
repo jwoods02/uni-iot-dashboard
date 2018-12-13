@@ -26,4 +26,4 @@ export default function getDataBySensorName(sensorName) {
       console.log('Error getting documents', err);
     });
   });
-}  
+} 

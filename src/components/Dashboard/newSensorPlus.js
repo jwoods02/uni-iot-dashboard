@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class SensorForm extends Component {
+class NewItemModal extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -19,4 +19,4 @@ class SensorForm extends Component {
     );
   }
 }
-export default SensorForm;
+export default NewItemModal;

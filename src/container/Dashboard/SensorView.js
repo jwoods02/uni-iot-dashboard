@@ -44,7 +44,12 @@ class SensorView extends Component {
     postNewSensor(this.state.sensorName, this.state.sensorType)
       .then((success) => {
         this.setState({success: true});
+        this.reload();
       });
+  }
+
+  reload(){
+    setInterval(window.location.reload(), 5000);
   }
 
   render() {
@@ -146,7 +151,7 @@ class SensorView extends Component {
                     {/* success feedback on sucessful db write */}
                     {this.state.success ? (
                       <div>
-                      <i class="fas fa-check bg-success ml-4"></i> 
+                      <i className="fas fa-check bg-success ml-4"></i> 
                       <small className="form-text text-muted ml-4">New sensor successfully added to db</small>
                       </div>
                       ) : null}
