@@ -20,7 +20,7 @@ export default class Article extends Component {
         <h1>{this.props.data.fields.title}</h1>
         <p className="text-muted">
           Last updated:{" "}
-          {new Date(this.props.data.fields.last_updated).toString()}
+          {new Date(this.props.data.fields.lastUpdated).toString()}
         </p>
         {console.log(this.props.data.fields.article)}
         <div
