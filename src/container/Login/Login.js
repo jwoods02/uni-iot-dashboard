@@ -32,7 +32,6 @@ class Login extends Component {
 
       auth.sendPasswordResetEmail(emailAddress).then(function() {
           alert("password reset has been sent to " + emailAddress);
-          console.log("hi")
       }).catch(function(error) {
           alert(error);
       });
