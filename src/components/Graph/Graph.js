@@ -35,8 +35,6 @@ class Graph extends React.Component {
                    xAxis.push(new Date(data[i].date["seconds"] * 1000));
                    yAxis.push(data[i]["value"]);
               }
-            
-              console.log(xAxis, yAxis)
                   this.setState({
                     data: [
                       {
