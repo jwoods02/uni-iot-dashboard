@@ -55,8 +55,26 @@ exports.sendNotification = functions.firestore
 
               if (operators[condition[0]](data, condition[1])) {
                 notifCount += 1;
+
                 // SEND EMAIL HERE
-                console.log("le email");
+                console.log("Email message:", docs.data().message);
+                console.log("Email address", docs.data().contact_detail);
+
+                const mailOptions = {
+                  from: "dwwiot9@gmail.com",
+                  to: docs.data().contact_detail,
+                  subject: "IOT Sensor Notification",
+                  text: docs.data().message
+                };
+
+                mailTransport.sendMail(mailOptions, (error, info) => {
+                  if (error) {
+                    console.log(error);
+                  } else {
+                    console.log("Email sent: " + info.response);
+                  }
+                });
+
                 return;
               } else {
                 // DO NOT SEND EMAIL
