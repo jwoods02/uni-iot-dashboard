@@ -1,32 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-test
-
 ## Set-Up Project
 
 ### Add a firebase.js file
 
-In src create a new firebase.js file.
+In src folder create a new file called firebase.js
 
 This file should contain:
 
-```JavaScript
-const apiKey = <API KEY HERE>;
+```
+const apiKey = '<API KEY HERE>';
 
 export default apiKey;
 
 ```
 
-Get API key from firebase console and add it
+<API KEY HERE> - The API key is a security feature.
+please replace <API KEY HERE>, with our API Key between single quotes, It will be included in the email we send you!
+
+### Add a firebase.json file
+
+visit this link - https://console.firebase.google.com/u/0/project/dww-iot/settings/serviceaccounts/adminsdk
+
+Select 'generate new private key', which should download a file locally.
+
+Move this file to this project inside the /src folder, and RENAME the file - firebase.json. <-- **IMPORTANT**
+
 
 ## Available Scripts
 
 In the project directory, you can run:
 
+### `npm i`
+
+In order to install any 3rd party project dependencies which are defined within our package.json file.
+npm i from TEAMP9IOT/ folder
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000] to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
@@ -46,27 +57,6 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-
-### `npm i`
-
-In order to install any 3rd party project dependencies which are defined within our package.json file.
-npm i from TEAMP9IOT/ dir
 
 ###  links to any third-party libraries used
 
@@ -75,6 +65,34 @@ React JS - https://reactjs.org/ - our front end framework , built with the 'crea
 firebase - https://firebase.google.com/ - our 'BaaS' (backend as a service) framework we are utilising mainly for authentication and real time data flow.
 
 firestore - https://firebase.google.com/products/firestore/ - Our NoSQL google cloud database. 
+
+Contentful - https://app.contentful.com/ - blog platform!
+
+### Contentful config
+
+Contentful allows you to easily create documentation pages on a web site which appear on your web app!
+
+**** Create a contentful.js file within the src/ folder. ****
+
+COPY AND PASTE THIS CODE INTO NEW FILE, BUT REPLACING ALL <> TAGS WITH KEYS WITHIN EMAIL!
+
+'''
+const spaceId = "<SPACE ID HERE>";
+const apiKey =
+"<CONTENTFUL API KEY HERE>";
+ 
+export { spaceId, apiKey };
+
+'''
+
+Stages:
+1.  Accept your contentful invitation sent to peter.trott@gmail.com
+2.  Access our data-works-wales space.
+3.  Navigate to Content.
+4.  Navigate to 'Section', and select 'Arduino Set Up for Our Use Case'
+5.  This page should show all documentation articles. You can add, delete, re-order your articles here.
+6.  To add a new article, scroll to the bottom and select '+ Create article and link'.
+8. Select 'Publish Changes to see your new docs on the web app'
 
 ###  Discussion of the architechture.
 
